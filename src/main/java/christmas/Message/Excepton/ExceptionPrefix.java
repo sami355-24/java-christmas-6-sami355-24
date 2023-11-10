@@ -3,13 +3,13 @@ package christmas.Message.Excepton;
 enum ExceptionPrefix {
     ERROR_PREFIX("[ERROR] ");
 
-    private String message;
+    private String prompt;
 
-    ExceptionPrefix(String message) {
-        this.message = message;
+    ExceptionPrefix(String prompt) {
+        this.prompt = prompt;
     }
 
-    public String getMessage() {
-        return message;
+    public String getPrompt() {
+        return prompt;
     }
 }
