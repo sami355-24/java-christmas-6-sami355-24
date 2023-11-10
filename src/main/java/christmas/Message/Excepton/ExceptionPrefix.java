@@ -1,11 +1,11 @@
 package christmas.Message.Excepton;
 
-enum ErrorPrefix {
+enum ExceptionPrefix {
     ERROR_PREFIX("[ERROR] ");
 
     private String message;
 
-    ErrorPrefix(String message) {
+    ExceptionPrefix(String message) {
         this.message = message;
     }
 
