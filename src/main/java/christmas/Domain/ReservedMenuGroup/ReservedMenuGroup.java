@@ -1,8 +1,9 @@
-package christmas.Domain;
+package christmas.Domain.ReservedMenuGroup;
 
 import static christmas.Utility.Utility.convertStringToInt;
 import static java.util.Collections.*;
 
+import christmas.Domain.Menu;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;

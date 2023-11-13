@@ -2,6 +2,7 @@ package christmas.Domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
