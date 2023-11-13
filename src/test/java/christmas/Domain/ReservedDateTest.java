@@ -30,4 +30,6 @@ class ReservedDateTest {
         assertThrows(CommonValidateException.class, () -> new ReservedDate(""));
         assertThrows(CommonValidateException.class, () -> new ReservedDate(" "));
     }
+
+
 }

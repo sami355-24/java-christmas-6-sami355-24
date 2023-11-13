@@ -47,7 +47,7 @@ public class ReservedDate {
         return date.getDayOfWeek().getValue() < SATURDAY.getValue();
     }
 
-    public boolean isChristmasFuture() {
+    public boolean isChristmasPassed() {
         return date.getDayOfMonth() <= CHRISTMAS.getValue();
     }
 
