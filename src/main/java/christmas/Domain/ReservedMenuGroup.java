@@ -1,7 +1,11 @@
 package christmas.Domain;
 
+import static java.util.Collections.*;
+
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReservedMenuGroup {
 
@@ -33,5 +37,9 @@ public class ReservedMenuGroup {
 
     private List<String> divideMenuWithCountByHyphen(String menuAndCount) {
         return List.of(menuAndCount.split(HYPHEN));
+    }
+
+    public Map<Menu, Integer> findAllReservedMenu() {
+        return unmodifiableMap(menuGroup);
     }
 }
