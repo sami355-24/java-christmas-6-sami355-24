@@ -16,4 +16,8 @@ public class Calculator {
     public int calculateWeekendDiscount(int mainDishCount) {
         return mainDishCount * 2023;
     }
+
+    public int specialDiscount(){
+        return 1000;
+    }
 }
