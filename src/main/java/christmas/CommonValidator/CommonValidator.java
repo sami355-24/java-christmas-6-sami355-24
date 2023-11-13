@@ -15,6 +15,9 @@ public class CommonValidator {
     }
 
     public static void validateBlankInput(String str) {
+        if (!str.isEmpty() && str.isBlank()) {
+            throw new CommonValidateException(INVALID_INPUT.getPrompt(), new IllegalArgumentException());
+        }
     }
 
     public static void validateEmptyInput(String str) {
