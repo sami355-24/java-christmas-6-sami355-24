@@ -14,6 +14,7 @@ class ReservedMenuGroupTest {
     private final String validMenuInput2 = "티본스테이크-2";
     private final String invalidMenuInput1 = "레드와인-1";
     private final String invalidMenuInput2 = "존재하지않는메뉴-1";
+    private final String invalidMenuInput3 = "해산물파스타-21,레드와인-1,초코케이크-1";
 
 
     @Test
@@ -74,5 +75,11 @@ class ReservedMenuGroupTest {
     @DisplayName("메뉴의 이름이 존재하지 않을때 예외를 발생시킨다.")
     void hasValidMenuNameTest() {
         assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput2));
+    }
+
+    @Test
+    @DisplayName("메뉴의 개수가 0개 이하 또는 20개 초과일때 예외를 발생시킨다.")
+    void hasValidMenuCountTest() {
+        assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput3));
     }
 }
