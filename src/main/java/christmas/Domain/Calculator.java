@@ -1,7 +1,5 @@
 package christmas.Domain;
 
-import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
-
 public class Calculator {
 
     public Calculator() {
@@ -13,5 +11,9 @@ public class Calculator {
 
     public int calculateWeekdayDiscount(int dessertCount) {
         return dessertCount * 2023;
+    }
+
+    public int calculateWeekendDiscount(int mainDishCount) {
+        return mainDishCount * 2023;
     }
 }
