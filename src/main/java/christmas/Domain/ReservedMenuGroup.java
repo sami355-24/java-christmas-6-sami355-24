@@ -13,6 +13,7 @@ public class ReservedMenuGroup {
 
     public ReservedMenuGroup(String menuInput) {
         this.menuGroup = new EnumMap<>(Menu.class);
+        reserveMenu(menuInput);
     }
 
     private void reserveMenu(String menus) {
