@@ -13,6 +13,9 @@ import java.util.List;
 
 public class ReservedMenuGroupValidator {
 
+    private static final int MAX_MENU_COUNT = 20;
+    private static final int MIN_MENU_COUNT = 1;
+
     private ReservedMenuGroupValidator() {
     }
 
@@ -44,7 +47,7 @@ public class ReservedMenuGroupValidator {
             totalMenuCount += convertStringToInt(menuCountString);
         }
 
-        if (totalMenuCount < 0 || totalMenuCount > 20)
+        if (totalMenuCount < MIN_MENU_COUNT || totalMenuCount > MAX_MENU_COUNT)
             throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
     }
 }
