@@ -106,4 +106,24 @@ class ReservedDateTest {
         assertFalse(reservedDate1.isStarDay());
         assertFalse(reservedDate2.isStarDay());
     }
+
+    @Test
+    @DisplayName("크리스마스 할인에 해당되는 날짜로 예약했을때 크리스마스 할인에 해당된다고 알려준다.")
+    void isChristmasPassedTest1() {
+        String CHRISTMAS = "25";
+
+        ReservedDate reservedDate = new ReservedDate(CHRISTMAS);
+
+        assertTrue(reservedDate.isChristmasPassed());
+    }
+
+    @Test
+    @DisplayName("크리스마스 할인에 해당되지 않는 날짜로 예약했을때 크리스마스 할인에 해당되지 않는다고 알려준다.")
+    void isChristmasPassedTest2() {
+        String CHRISTMAS = "26";
+
+        ReservedDate reservedDate = new ReservedDate(CHRISTMAS);
+
+        assertFalse(reservedDate.isChristmasPassed());
+    }
 }
