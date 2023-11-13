@@ -80,4 +80,30 @@ class ReservedDateTest {
         assertFalse(reservedDate2.isWeekend());
         assertFalse(reservedDate1.isWeekend());
     }
+
+    @Test
+    @DisplayName("특별 할인에 해당되는 날짜로 예약했을때 특별 할인에 해당한다고 알려준다.")
+    void isStarDayTest1() {
+        String SUNDAY = "3";
+        String CHRISTMAS = "25";
+
+        ReservedDate reservedDate1 = new ReservedDate(SUNDAY);
+        ReservedDate reservedDate2 = new ReservedDate(CHRISTMAS);
+
+        assertTrue(reservedDate1.isStarDay());
+        assertTrue(reservedDate2.isStarDay());
+    }
+
+    @Test
+    @DisplayName("특별 할인에 해당되지 않는 날짜로 예약했을때 특별 할인에 해당되지 않는다고 알려준다.")
+    void isStarDayTest2() {
+        String MONDAY = "4";
+        String TUESDAY = "26";
+
+        ReservedDate reservedDate1 = new ReservedDate(MONDAY);
+        ReservedDate reservedDate2 = new ReservedDate(TUESDAY);
+
+        assertFalse(reservedDate1.isStarDay());
+        assertFalse(reservedDate2.isStarDay());
+    }
 }
