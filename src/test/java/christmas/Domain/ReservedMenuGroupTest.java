@@ -15,7 +15,7 @@ class ReservedMenuGroupTest {
     void findAllReservedMenuTest(){
         //when
         ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
-        Map<Menu, Integer> allReservedMenu = reservedMenuGroup.findAllReservedMenu();
+        Map<Menu, Integer> allReservedMenu = reservedMenuGroup.getMenuGroup();
 
         //then
         assertEquals(3, allReservedMenu.size());

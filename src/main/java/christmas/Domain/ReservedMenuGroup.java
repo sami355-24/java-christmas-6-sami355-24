@@ -3,7 +3,6 @@ package christmas.Domain;
 import static christmas.Utility.Utility.convertStringToInt;
 import static java.util.Collections.*;
 
-import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -41,7 +40,9 @@ public class ReservedMenuGroup {
         return List.of(menuAndCount.split(HYPHEN));
     }
 
-    public Map<Menu, Integer> findAllReservedMenu() {
+
+
+    public Map<Menu, Integer> getMenuGroup() {
         return unmodifiableMap(menuGroup);
     }
 }
