@@ -15,5 +15,7 @@ public class ReservedMenuGroup {
         this.menuGroup = new EnumMap<>(Menu.class);
     }
 
-
+    private List<String> divideMenusByComma(String menuInput) {
+        return List.of(menuInput.split(COMMA));
+    }
 }
