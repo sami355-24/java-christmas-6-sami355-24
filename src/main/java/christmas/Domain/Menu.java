@@ -38,6 +38,10 @@ public enum Menu {
         throw new IllegalArgumentException(INVALID_MENU.getPrompt());
     }
 
+    public static boolean isDessert(Menu menu) {
+        return menu.category.equals("디저트");
+    }
+
     public String getCategory() {
         return category;
     }

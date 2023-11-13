@@ -40,6 +40,11 @@ public class ReservedMenuGroup {
         return List.of(menuAndCount.split(HYPHEN));
     }
 
+    public int countDessert(){
+        return (int) menuGroup.keySet().stream()
+                .filter(Menu::isDessert)
+                .count();
+    }
 
 
     public Map<Menu, Integer> getMenuGroup() {
