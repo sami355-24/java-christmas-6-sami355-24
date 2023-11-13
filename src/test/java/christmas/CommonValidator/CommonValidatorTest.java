@@ -1,5 +1,6 @@
 package christmas.CommonValidator;
 
+import static christmas.CommonValidator.CommonValidator.validateBlankInput;
 import static christmas.CommonValidator.CommonValidator.validateIntegerInput;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -23,10 +24,14 @@ class CommonValidatorTest {
     }
 
     @Test
-    void validateBlankInput() {
+    @DisplayName("공백 입력 검증을 하는 기능을 테스트한다.")
+    void validateBlankInputTest() {
+        assertDoesNotThrow(() -> validateBlankInput(INTEGER_INPUT));
+        assertThrows(CommonValidateException.class, () -> validateBlankInput(BLANK_INPUT));
+        assertDoesNotThrow(() -> validateBlankInput(EMPTY_INPUT));
     }
 
     @Test
-    void validateEmptyInput() {
+    void validateEmptyInputTest() {
     }
 }
