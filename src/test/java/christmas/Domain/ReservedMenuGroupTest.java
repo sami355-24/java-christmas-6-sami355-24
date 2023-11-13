@@ -16,6 +16,7 @@ class ReservedMenuGroupTest {
     private final String invalidMenuInput2 = "존재하지 않는 메뉴-1";
     private final String invalidMenuInput3 = "해산물파스타-21,레드와인-1,초코케이크-1";
     private final String invalidMenuInput4 = "해산물파스타-2,레드와인-1,초코케이크-1,1-1-1";
+    private final String invalidMenuInput5 = "해산물파스타-2,레드와인-1,초코케이크-1,해산물파스타-2";
 
     @Test
     @DisplayName("메뉴와 개수를 입력하면 해당하는 메뉴와 개수를 예약한다.")
@@ -87,5 +88,11 @@ class ReservedMenuGroupTest {
     @DisplayName("메뉴의 형식이 올바르지 않을때 예외를 발생시킨다.")
     void isValidFormatTest() {
         assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput4));
+    }
+
+    @Test
+    @DisplayName("중복된 메뉴가 있을때 예외를 발생시킨다.")
+    void idDuplicateMenuTest() {
+        assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput5));
     }
 }
