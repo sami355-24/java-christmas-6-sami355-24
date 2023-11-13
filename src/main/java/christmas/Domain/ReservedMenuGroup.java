@@ -18,4 +18,8 @@ public class ReservedMenuGroup {
     private List<String> divideMenusByComma(String menuInput) {
         return List.of(menuInput.split(COMMA));
     }
+
+    private List<String> divideMenuWithCountByHyphen(String menuAndCount) {
+        return List.of(menuAndCount.split(HYPHEN));
+    }
 }
