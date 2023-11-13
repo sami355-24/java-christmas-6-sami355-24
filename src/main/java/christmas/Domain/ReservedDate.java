@@ -1,5 +1,7 @@
 package christmas.Domain;
 
+import static christmas.CommonValidator.CommonValidator.validateBlankInput;
+import static christmas.CommonValidator.CommonValidator.validateEmptyInput;
 import static christmas.CommonValidator.CommonValidator.validateIntegerInput;
 import static christmas.Message.Excepton.ExceptionPrompt.INVALID_DATE;
 import static christmas.Utility.Utility.convertStringToInt;
@@ -19,6 +21,8 @@ public class ReservedDate {
 
     private void validate(String day) {
         validateIntegerInput(day);
+        validateBlankInput(day);
+        validateEmptyInput(day);
         validateDay(convertStringToInt(day));
     }
 
