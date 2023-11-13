@@ -1,5 +1,7 @@
 package christmas.Domain;
 
+import static christmas.Message.Excepton.ExceptionPrompt.INVALID_MENU;
+
 public enum Menu {
     MUSHROOM_SOUP("애피타이저" ,"양송이스프", 6_000),
     TAPAS("애피타이저", "타파스", 5_500),
@@ -7,7 +9,7 @@ public enum Menu {
 
     T_BONE_STEAK("메인", "티본스테이크", 55_000),
     BARBECUE_RIB("메인", "바베큐립", 54_000),
-    SEAFOOD_PASTA("메인", "해산물파스타", 35_000),
+    SEA_FOOD_PASTA("메인", "해산물파스타", 35_000),
     CHRISTMAS_PASTA("메인", "크리스마스파스타", 25_000),
 
     CHOCO_CAKE("디저트", "초코케이크", 15_000),
@@ -25,6 +27,15 @@ public enum Menu {
         this.category = category;
         this.name = name;
         this.price = price;
+    }
+
+    public static Menu findMenuByName(String name) {
+        for (Menu menu : Menu.values()) {
+            if (menu.name.equals(name)) {
+                return menu;
+            }
+        }
+        throw new IllegalArgumentException(INVALID_MENU.getPrompt());
     }
 
     public String getCategory() {

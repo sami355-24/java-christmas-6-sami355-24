@@ -1,5 +1,6 @@
 package christmas.Domain;
 
+import static christmas.Utility.Utility.convertStringToInt;
 import static java.util.Collections.*;
 
 import java.util.Collections;
@@ -24,9 +25,10 @@ public class ReservedMenuGroup {
         List<String> dividedMenus = divideMenusByComma(menus);
         for (String menuWithCount : dividedMenus) {
             List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(menuWithCount);
+
             menuGroup.put(
-                    Menu.valueOf(dividedMenuAndCount.get(menu)),
-                    Integer.parseInt(dividedMenuAndCount.get(count))
+                    Menu.findMenuByName(dividedMenuAndCount.get(menu)),
+                    convertStringToInt(dividedMenuAndCount.get(count))
             );
         }
     }
