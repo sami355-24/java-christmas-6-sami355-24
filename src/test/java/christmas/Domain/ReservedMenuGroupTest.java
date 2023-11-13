@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import christmas.Exception.MenuException;
 import java.util.Map;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,9 +13,9 @@ class ReservedMenuGroupTest {
     private final String validMenuInput1 = "해산물파스타-2,레드와인-1,초코케이크-1";
     private final String validMenuInput2 = "티본스테이크-2";
     private final String invalidMenuInput1 = "레드와인-1";
-    private final String invalidMenuInput2 = "존재하지않는메뉴-1";
+    private final String invalidMenuInput2 = "존재하지 않는 메뉴-1";
     private final String invalidMenuInput3 = "해산물파스타-21,레드와인-1,초코케이크-1";
-
+    private final String invalidMenuInput4 = "해산물파스타-2,레드와인-1,초코케이크-1,1-1-1";
 
     @Test
     @DisplayName("메뉴와 개수를 입력하면 해당하는 메뉴와 개수를 예약한다.")
@@ -82,5 +81,11 @@ class ReservedMenuGroupTest {
     @DisplayName("메뉴의 개수가 0개 이하 또는 20개 초과일때 예외를 발생시킨다.")
     void hasValidMenuCountTest() {
         assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput3));
+    }
+
+    @Test
+    @DisplayName("메뉴의 형식이 올바르지 않을때 예외를 발생시킨다.")
+    void isValidFormatTest() {
+        assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput4));
     }
 }
