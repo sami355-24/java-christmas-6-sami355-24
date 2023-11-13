@@ -46,6 +46,11 @@ public class ReservedMenuGroup {
                 .count();
     }
 
+    public int countMainDish(){
+        return (int) menuGroup.keySet().stream()
+                .filter(Menu::isMainDish)
+                .count();
+    }
 
     public Map<Menu, Integer> getMenuGroup() {
         return unmodifiableMap(menuGroup);
