@@ -6,6 +6,9 @@ import christmas.Exception.CommonValidateException;
 
 public class CommonValidator {
 
+    private CommonValidator() {
+    }
+
     public static void validateIntegerInput(String str) {
         try {
             Integer.parseInt(str);
