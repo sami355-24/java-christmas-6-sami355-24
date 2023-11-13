@@ -1,5 +1,7 @@
 package christmas.Domain.ReservedMenuGroup;
 
+import static christmas.Common.Utility.convertStringToInt;
+import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroup.count;
 import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroup.divideMenuWithCountByHyphen;
 import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroup.divideMenusByComma;
 import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroup.menu;
@@ -30,5 +32,19 @@ public class ReservedMenuGroupValidator {
             List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(menuWithCount);
             Menu.findMenuByName(dividedMenuAndCount.get(menu));
         }
+    }
+
+    static void hasValidMenuCount(String menuInput) {
+        List<String> dividedMenus = divideMenusByComma(menuInput);
+        int totalMenuCount = 0;
+
+        for (String menuWithCount : dividedMenus) {
+            List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(menuWithCount);
+            String menuCountString = dividedMenuAndCount.get(count);
+            totalMenuCount += convertStringToInt(menuCountString);
+        }
+
+        if (totalMenuCount < 0 || totalMenuCount > 20)
+            throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
     }
 }
