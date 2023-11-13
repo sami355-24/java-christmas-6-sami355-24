@@ -1,7 +1,9 @@
 package christmas.Domain;
 
-public class Calculator {
+import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
+import java.util.Map;
 
+public class Calculator {
 
     public int calculateChristmasDiscount(int day) {
         return 1000 + 100 * (day-1);
@@ -21,5 +23,14 @@ public class Calculator {
 
     public int giftBenefit(){
         return Menu.CHAMPAGNE.getPrice();
+    }
+
+    public int calculateTotalPriceBeforeDiscount(ReservedMenuGroup menuGroup){
+        Map<Menu, Integer> menus = menuGroup.getMenuGroup();
+        int totalPrice = 0;
+        for (Menu menu : menus.keySet()) {
+            totalPrice += menu.getPrice() * menus.get(menu);
+        }
+        return totalPrice;
     }
 }
