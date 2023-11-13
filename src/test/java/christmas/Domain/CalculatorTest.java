@@ -43,4 +43,11 @@ class CalculatorTest {
         int calculated = calculator.specialDiscount();
         assertEquals(1000, calculated);
     }
+
+    @Test
+    @DisplayName("증정 혜택 금액을 계산한다.")
+    void giftBenefitTest(){
+        int calculated = calculator.giftBenefit();
+        assertEquals(Menu.CHAMPAGNE.getPrice(), calculated);
+    }
 }
