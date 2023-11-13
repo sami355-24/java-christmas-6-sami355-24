@@ -10,7 +10,8 @@ import org.junit.jupiter.api.Test;
 
 class ReservedMenuGroupTest {
 
-    private final String validMenuInput = "해산물파스타-2,레드와인-1,초코케이크-1";
+    private final String validMenuInput1 = "해산물파스타-2,레드와인-1,초코케이크-1";
+    private final String validMenuInput2 = "티본스테이크-2";
     private final String invalidMenuInput1 = "레드와인-1";
 
 
@@ -18,7 +19,7 @@ class ReservedMenuGroupTest {
     @DisplayName("메뉴와 개수를 입력하면 해당하는 메뉴와 개수를 예약한다.")
     void findAllReservedMenuTest() {
         //when
-        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
+        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput1);
         Map<Menu, Integer> allReservedMenu = reservedMenuGroup.getMenuGroup();
 
         //then
@@ -29,10 +30,22 @@ class ReservedMenuGroupTest {
     }
 
     @Test
+    @DisplayName("음료를 제외한 메뉴만 입력하면 해당하는 메뉴와 개수를 예약한다.")
+    void findAllReservedMenuExceptBeverageTest() {
+        //when
+        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput2);
+        Map<Menu, Integer> allReservedMenu = reservedMenuGroup.getMenuGroup();
+
+        //then
+        assertEquals(1, allReservedMenu.size());
+        assertEquals(2, allReservedMenu.get(Menu.T_BONE_STEAK));
+    }
+
+    @Test
     @DisplayName("예약한 메뉴중 디저트의 개수를 반환한다.")
     void countDessertTest() {
         //when
-        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
+        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput1);
         int dessertCount = reservedMenuGroup.countDessert();
 
         //then
@@ -43,7 +56,7 @@ class ReservedMenuGroupTest {
     @DisplayName("예약한 메뉴중 메인메뉴의 개수를 반환한다.")
     void countMainDishTest() {
         //when
-        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
+        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput1);
         int MainDishCount = reservedMenuGroup.countMainDish();
 
         //then
