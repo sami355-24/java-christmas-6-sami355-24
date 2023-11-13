@@ -7,16 +7,17 @@ import static christmas.Message.Excepton.ExceptionPrompt.INVALID_DATE;
 import static christmas.Utility.Utility.convertStringToInt;
 
 import christmas.Exception.DateException;
+import java.time.LocalDate;
 
 public class ReservedDate {
 
-    private int day;
     private final int MIN_DAY = 1;
     private final int MAX_DAY = 31;
+    private LocalDate date;
 
     public ReservedDate(String day) {
         validate(day);
-        this.day = convertStringToInt(day);
+        this.date = LocalDate.of(2023, 12, convertStringToInt(day));
     }
 
     private void validate(String day) {
@@ -33,6 +34,6 @@ public class ReservedDate {
     }
 
     public int getDay() {
-        return day;
+        return date.getDayOfMonth();
     }
 }
