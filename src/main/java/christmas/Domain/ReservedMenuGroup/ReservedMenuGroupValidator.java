@@ -10,6 +10,7 @@ import static christmas.Message.Excepton.ExceptionPrompt.INVALID_MENU;
 import christmas.Domain.Menu;
 import christmas.Exception.MenuException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class ReservedMenuGroupValidator {
 
@@ -49,5 +50,17 @@ public class ReservedMenuGroupValidator {
 
         if (totalMenuCount < MIN_MENU_COUNT || totalMenuCount > MAX_MENU_COUNT)
             throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
+    }
+
+    static void isValidFormat(String menuInput) {
+        String pattern = "^(.+)-(\\d+)$";
+        Pattern r = Pattern.compile(pattern, Pattern.MULTILINE);
+
+        List<String> dividedMenus = divideMenusByComma(menuInput);
+        for (String menuWithCount : dividedMenus) {
+            if (!r.matcher(menuWithCount).find()) {
+                throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
+            }
+        }
     }
 }

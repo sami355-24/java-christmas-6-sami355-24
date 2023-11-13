@@ -3,6 +3,7 @@ package christmas.Domain.ReservedMenuGroup;
 import static christmas.Common.Utility.convertStringToInt;
 import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.hasValidMenuCount;
 import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.hasValidMenuName;
+import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.isValidFormat;
 import static java.util.Collections.*;
 
 import christmas.Domain.Menu;
@@ -28,6 +29,7 @@ public class ReservedMenuGroup {
         ReservedMenuGroupValidator.hasOnlyBeverages(menuInput);
         hasValidMenuName(menuInput);
         hasValidMenuCount(menuInput);
+        isValidFormat(menuInput);
     }
 
     private void reserveMenu(String menus) {
