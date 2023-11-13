@@ -2,6 +2,8 @@ package christmas.Domain;
 
 import static christmas.Message.Excepton.ExceptionPrompt.INVALID_MENU;
 
+import christmas.Exception.MenuException;
+
 public enum Menu {
     MUSHROOM_SOUP("애피타이저" ,"양송이스프", 6_000),
     TAPAS("애피타이저", "타파스", 5_500),
@@ -35,7 +37,7 @@ public enum Menu {
                 return menu;
             }
         }
-        throw new IllegalArgumentException(INVALID_MENU.getPrompt());
+        throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
     }
 
     public static boolean isDessert(Menu menu) {
