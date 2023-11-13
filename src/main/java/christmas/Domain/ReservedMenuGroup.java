@@ -41,15 +41,17 @@ public class ReservedMenuGroup {
     }
 
     public int countDessert(){
-        return (int) menuGroup.keySet().stream()
+        return menuGroup.keySet().stream()
                 .filter(Menu::isDessert)
-                .count();
+                .mapToInt(menuGroup::get)
+                .sum();
     }
 
     public int countMainDish(){
-        return (int) menuGroup.keySet().stream()
+        return menuGroup.keySet().stream()
                 .filter(Menu::isMainDish)
-                .count();
+                .mapToInt(menuGroup::get)
+                .sum();
     }
 
     public Map<Menu, Integer> getMenuGroup() {

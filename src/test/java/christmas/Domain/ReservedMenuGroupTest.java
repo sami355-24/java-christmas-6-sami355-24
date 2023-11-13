@@ -34,4 +34,15 @@ class ReservedMenuGroupTest {
         //then
         assertEquals(1, dessertCount);
     }
+
+    @Test
+    @DisplayName("예약한 메뉴중 메인메뉴의 개수를 반환한다.")
+    void countMainDishTest(){
+        //when
+        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
+        int MainDishCount = reservedMenuGroup.countMainDish();
+
+        //then
+        assertEquals(2, MainDishCount);
+    }
 }
