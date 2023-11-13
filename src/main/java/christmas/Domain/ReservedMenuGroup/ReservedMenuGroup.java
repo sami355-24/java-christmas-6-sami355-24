@@ -15,6 +15,7 @@ import java.util.Map;
 public class ReservedMenuGroup {
 
     private final EnumMap<Menu, Integer> menuGroup;
+
     static final String COMMA = ",";
     static final String HYPHEN = "-";
     static final int menu = 0;
