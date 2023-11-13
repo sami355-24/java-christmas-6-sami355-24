@@ -20,4 +20,8 @@ public class Calculator {
     public int specialDiscount(){
         return 1000;
     }
+
+    public int giftBenefit(){
+        return Menu.CHAMPAGNE.getPrice();
+    }
 }
