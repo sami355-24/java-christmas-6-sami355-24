@@ -23,4 +23,12 @@ public class ReservedMenuGroupValidator {
             }
         }
     }
+
+    static void hasValidMenuName(String menuInput) {
+        List<String> dividedMenus = divideMenusByComma(menuInput);
+        for (String menuWithCount : dividedMenus) {
+            List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(menuWithCount);
+            Menu.findMenuByName(dividedMenuAndCount.get(menu));
+        }
+    }
 }

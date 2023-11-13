@@ -1,6 +1,7 @@
 package christmas.Domain.ReservedMenuGroup;
 
 import static christmas.Common.Utility.convertStringToInt;
+import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.hasValidMenuName;
 import static java.util.Collections.*;
 
 import christmas.Domain.Menu;
@@ -24,6 +25,7 @@ public class ReservedMenuGroup {
 
     private void validate(String menuInput) {
         ReservedMenuGroupValidator.hasOnlyBeverages(menuInput);
+        hasValidMenuName(menuInput);
     }
 
     private void reserveMenu(String menus) {
