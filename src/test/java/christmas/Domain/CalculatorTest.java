@@ -36,4 +36,11 @@ class CalculatorTest {
         int calculated = calculator.calculateWeekendDiscount(mainDishCount);
         assertEquals(discountPriceInWeekend, calculated);
     }
+
+    @Test
+    @DisplayName("특별 할인 금액을 계산한다.")
+    void specialDiscountTest(){
+        int calculated = calculator.specialDiscount();
+        assertEquals(1000, calculated);
+    }
 }
