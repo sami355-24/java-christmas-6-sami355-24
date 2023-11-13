@@ -13,6 +13,7 @@ class ReservedMenuGroupTest {
     private final String validMenuInput1 = "해산물파스타-2,레드와인-1,초코케이크-1";
     private final String validMenuInput2 = "티본스테이크-2";
     private final String invalidMenuInput1 = "레드와인-1";
+    private final String invalidMenuInput2 = "존재하지않는메뉴-1";
 
 
     @Test
@@ -67,5 +68,11 @@ class ReservedMenuGroupTest {
     @DisplayName("음료만 주문하였을때 예외를 발생시킨다.")
     void hasOnlyBeveragesTest() {
         assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput1));
+    }
+
+    @Test
+    @DisplayName("메뉴의 이름이 존재하지 않을때 예외를 발생시킨다.")
+    void hasValidMenuNameTest() {
+        assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput2));
     }
 }
