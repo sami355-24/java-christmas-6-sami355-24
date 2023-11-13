@@ -1,8 +1,8 @@
 package christmas.CommonValidator;
 
-import static christmas.CommonValidator.CommonValidator.validateBlankInput;
-import static christmas.CommonValidator.CommonValidator.validateEmptyInput;
-import static christmas.CommonValidator.CommonValidator.validateIntegerInput;
+import static christmas.Common.Validator.validateBlankInput;
+import static christmas.Common.Validator.validateEmptyInput;
+import static christmas.Common.Validator.validateIntegerInput;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -10,7 +10,7 @@ import christmas.Exception.CommonValidateException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class CommonValidatorTest {
+class ValidatorTest {
 
     private final String INTEGER_INPUT = "1";
     private final String BLANK_INPUT = " ";

@@ -1,4 +1,4 @@
-package christmas.Utility;
+package christmas.Common;
 
 public class Utility {
 

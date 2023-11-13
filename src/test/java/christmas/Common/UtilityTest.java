@@ -1,6 +1,6 @@
-package christmas.Utility;
+package christmas.Common;
 
-import static christmas.Utility.Utility.convertStringToInt;
+import static christmas.Common.Utility.convertStringToInt;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;

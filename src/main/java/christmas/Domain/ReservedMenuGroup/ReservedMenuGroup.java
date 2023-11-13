@@ -1,6 +1,6 @@
 package christmas.Domain.ReservedMenuGroup;
 
-import static christmas.Utility.Utility.convertStringToInt;
+import static christmas.Common.Utility.convertStringToInt;
 import static java.util.Collections.*;
 
 import christmas.Domain.Menu;

@@ -1,12 +1,12 @@
-package christmas.CommonValidator;
+package christmas.Common;
 
 import static christmas.Message.Excepton.ExceptionPrompt.INVALID_INPUT;
 
 import christmas.Exception.CommonValidateException;
 
-public class CommonValidator {
+public class Validator {
 
-    private CommonValidator() {
+    private Validator() {
     }
 
     public static void validateIntegerInput(String str) {

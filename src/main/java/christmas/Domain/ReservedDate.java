@@ -1,8 +1,8 @@
 package christmas.Domain;
 
-import static christmas.CommonValidator.CommonValidator.validateBlankInput;
-import static christmas.CommonValidator.CommonValidator.validateEmptyInput;
-import static christmas.CommonValidator.CommonValidator.validateIntegerInput;
+import static christmas.Common.Validator.validateBlankInput;
+import static christmas.Common.Validator.validateEmptyInput;
+import static christmas.Common.Validator.validateIntegerInput;
 import static christmas.Constant.Date.CHRISTMAS;
 import static christmas.Constant.Date.FRIDAY;
 import static christmas.Constant.Date.MAX_DAY;
@@ -12,7 +12,7 @@ import static christmas.Constant.Date.SATURDAY;
 import static christmas.Constant.Date.SUNDAY;
 import static christmas.Constant.Date.YEAR;
 import static christmas.Message.Excepton.ExceptionPrompt.INVALID_DATE;
-import static christmas.Utility.Utility.convertStringToInt;
+import static christmas.Common.Utility.convertStringToInt;
 
 import christmas.Exception.DateException;
 import java.time.LocalDate;
