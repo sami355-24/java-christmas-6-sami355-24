@@ -18,7 +18,7 @@ public class ReservedMenuGroupValidator {
         List<String> dividedMenus = divideMenusByComma(menuInput);
         for (String menuWithCount : dividedMenus) {
             List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(menuWithCount);
-            if (Menu.isBeverage(Menu.valueOf(dividedMenuAndCount.get(menu)))) {
+            if (Menu.isBeverage(Menu.findMenuByName(dividedMenuAndCount.get(menu)))) {
                 throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
             }
         }
