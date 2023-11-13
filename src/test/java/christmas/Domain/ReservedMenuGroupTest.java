@@ -3,6 +3,7 @@ package christmas.Domain;
 import static org.junit.jupiter.api.Assertions.*;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
+import christmas.Exception.MenuException;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,10 +11,12 @@ import org.junit.jupiter.api.Test;
 class ReservedMenuGroupTest {
 
     private final String validMenuInput = "해산물파스타-2,레드와인-1,초코케이크-1";
+    private final String invalidMenuInput1 = "레드와인-1";
+
 
     @Test
     @DisplayName("메뉴와 개수를 입력하면 해당하는 메뉴와 개수를 예약한다.")
-    void findAllReservedMenuTest(){
+    void findAllReservedMenuTest() {
         //when
         ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
         Map<Menu, Integer> allReservedMenu = reservedMenuGroup.getMenuGroup();
@@ -27,7 +30,7 @@ class ReservedMenuGroupTest {
 
     @Test
     @DisplayName("예약한 메뉴중 디저트의 개수를 반환한다.")
-    void countDessertTest(){
+    void countDessertTest() {
         //when
         ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
         int dessertCount = reservedMenuGroup.countDessert();
@@ -38,12 +41,18 @@ class ReservedMenuGroupTest {
 
     @Test
     @DisplayName("예약한 메뉴중 메인메뉴의 개수를 반환한다.")
-    void countMainDishTest(){
+    void countMainDishTest() {
         //when
         ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
         int MainDishCount = reservedMenuGroup.countMainDish();
 
         //then
         assertEquals(2, MainDishCount);
+    }
+
+    @Test
+    @DisplayName("음료만 주문하였을때 예외를 발생시킨다.")
+    void hasOnlyBeveragesTest() {
+        assertThrows(MenuException.class, () -> new ReservedMenuGroup(invalidMenuInput1));
     }
 }
