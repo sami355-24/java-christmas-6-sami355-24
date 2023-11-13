@@ -6,6 +6,6 @@ public class Utility {
     }
 
     public static int convertStringToInt(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 }
