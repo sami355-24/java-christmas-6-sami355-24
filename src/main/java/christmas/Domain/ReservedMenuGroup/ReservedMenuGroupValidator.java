@@ -9,7 +9,9 @@ import static christmas.Message.Excepton.ExceptionPrompt.INVALID_MENU;
 
 import christmas.Domain.Menu;
 import christmas.Exception.MenuException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class ReservedMenuGroupValidator {
@@ -61,6 +63,19 @@ public class ReservedMenuGroupValidator {
             if (!r.matcher(menuWithCount).find()) {
                 throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
             }
+        }
+    }
+
+    static void idDuplicateMenu(String menuInput) {
+        List<String> dividedMenus = divideMenusByComma(menuInput);
+        Set<String> menuSet = new HashSet<>();
+        for (String dividedMenu : dividedMenus) {
+            List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(dividedMenu);
+            menuSet.add(dividedMenuAndCount.get(menu));
+        }
+
+        if (menuSet.size() != dividedMenus.size()) {
+            throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
         }
     }
 }
