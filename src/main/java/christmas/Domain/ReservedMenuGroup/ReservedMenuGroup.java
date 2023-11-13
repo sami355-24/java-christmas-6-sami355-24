@@ -11,14 +11,19 @@ import java.util.Map;
 public class ReservedMenuGroup {
 
     private final EnumMap<Menu, Integer> menuGroup;
-    private final String COMMA = ",";
-    private final String HYPHEN = "-";
-    private final int menu = 0;
-    private final int count = 1;
+    static final String COMMA = ",";
+    static final String HYPHEN = "-";
+    static final int menu = 0;
+    static final int count = 1;
 
     public ReservedMenuGroup(String menuInput) {
         this.menuGroup = new EnumMap<>(Menu.class);
+        validate(menuInput);
         reserveMenu(menuInput);
+    }
+
+    private void validate(String menuInput) {
+        ReservedMenuGroupValidator.hasOnlyBeverages(menuInput);
     }
 
     private void reserveMenu(String menus) {
@@ -33,11 +38,11 @@ public class ReservedMenuGroup {
         }
     }
 
-    private List<String> divideMenusByComma(String menuInput) {
+    static List<String> divideMenusByComma(String menuInput) {
         return List.of(menuInput.split(COMMA));
     }
 
-    private List<String> divideMenuWithCountByHyphen(String menuAndCount) {
+    static List<String> divideMenuWithCountByHyphen(String menuAndCount) {
         return List.of(menuAndCount.split(HYPHEN));
     }
 
