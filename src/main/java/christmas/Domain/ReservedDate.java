@@ -4,6 +4,7 @@ import static christmas.CommonValidator.CommonValidator.validateBlankInput;
 import static christmas.CommonValidator.CommonValidator.validateEmptyInput;
 import static christmas.CommonValidator.CommonValidator.validateIntegerInput;
 import static christmas.Constant.Date.CHRISTMAS;
+import static christmas.Constant.Date.FRIDAY;
 import static christmas.Constant.Date.MAX_DAY;
 import static christmas.Constant.Date.MIN_DAY;
 import static christmas.Constant.Date.MONTH;
@@ -39,8 +40,8 @@ public class ReservedDate {
     }
 
     public boolean isWeekend() {
-        return date.getDayOfWeek().getValue() == SATURDAY.getValue()
-                || date.getDayOfWeek().getValue() == SUNDAY.getValue();
+        return date.getDayOfWeek().getValue() == FRIDAY.getValue()
+                || date.getDayOfWeek().getValue() == SATURDAY.getValue();
     }
 
     public boolean isWeekDay() {
