@@ -24,4 +24,14 @@ class ReservedMenuGroupTest {
         assertEquals(1, allReservedMenu.get(Menu.CHOCO_CAKE));
     }
 
+    @Test
+    @DisplayName("예약한 메뉴중 디저트의 개수를 반환한다.")
+    void countDessertTest(){
+        //when
+        ReservedMenuGroup reservedMenuGroup = new ReservedMenuGroup(validMenuInput);
+        int dessertCount = reservedMenuGroup.countDessert();
+
+        //then
+        assertEquals(1, dessertCount);
+    }
 }
