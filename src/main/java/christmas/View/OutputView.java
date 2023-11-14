@@ -26,9 +26,6 @@ import java.util.Set;
 
 public class OutputView {
 
-    public OutputView() {
-    }
-
     public void welcomeMessage() {
         System.out.println(WELL_COME.getPrompt());
     }
