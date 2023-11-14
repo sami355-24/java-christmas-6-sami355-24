@@ -15,6 +15,12 @@ public enum Benefit {
 
     private String value;
 
+    public static final int CHRISTMAS_BASIC_BENEFIT_DISCOUNT = 1000;
+    public static final int CHRISTMAS_PER_DAY_BENEFIT_DISCOUNT = 100;
+    public static final int WEEKDAY_BENEFIT_DISCOUNT = 2023;
+    public static final int WEEKEND_BENEFIT_DISCOUNT = 2023;
+    public static final int SPECIAL_BENEFIT_DISCOUNT = 1000;
+
     Benefit(String benefitName) {
         this.value = benefitName;
     }
