@@ -17,7 +17,7 @@ public enum EventPlannerPrompt {
     RESERVED_MENU("%s %,d개"),
     TOTAL_PRICE("%,d원"),
     GIFT_MENU("%s %,d개"),
-    APPLIED_EVENT("%s %,d원"),
+    APPLIED_EVENT("%s -%,d원"),
     TOTAL_BENEFIT_PRICE("-%,d원");
 
     private final String prompt;
