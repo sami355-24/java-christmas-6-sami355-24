@@ -2,12 +2,14 @@ package christmas.Controller;
 
 import christmas.Domain.ReservedDate;
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
+import christmas.Exception.CommonValidateException;
 import christmas.Exception.DateException;
+import christmas.Exception.MenuException;
 
 public class EventPlannerDecorator extends EventPlanner {
 
 
-    public EventPlannerDecorator(EventPlanner eventPlanner) {
+    public EventPlannerDecorator() {
         super();
     }
 
@@ -17,7 +19,7 @@ public class EventPlannerDecorator extends EventPlanner {
         do {
             try {
                 reservedDate = super.reserveDate();
-            } catch (DateException e) {
+            } catch (DateException | CommonValidateException e) {
                 System.out.println(e.getMessage());
             }
         } while (reservedDate == null);
@@ -30,7 +32,7 @@ public class EventPlannerDecorator extends EventPlanner {
         do {
             try {
                 reservedMenuGroup = super.reservedMenuGroup();
-            } catch (DateException e) {
+            } catch (MenuException | CommonValidateException e) {
                 System.out.println(e.getMessage());
             }
         } while (reservedMenuGroup == null);
