@@ -1,6 +1,7 @@
 package christmas.Domain;
 
 import static christmas.Constant.Benefit.DISCOUNT_CRITERIA;
+import static christmas.Domain.Menu.CHAMPAGNE;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;
@@ -21,6 +22,10 @@ public class ReservedOrder {
 
     public boolean isDiscountAvailable() {
         return calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= DISCOUNT_CRITERIA;
+    }
+
+    public Map<String, Integer> getGifts() {
+        return Map.of(CHAMPAGNE.getName(), CHAMPAGNE.getPrice());
     }
 
     public Map<String, Integer> getBenefitRecord() {
