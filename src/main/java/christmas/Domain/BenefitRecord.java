@@ -26,7 +26,6 @@ public class BenefitRecord {
     private final List<Integer> TREE_BADGE_CRITERIA = List.of(10_000, 19_999);
     private final List<Integer> SANTA_BADGE_CRITERIA = List.of(20_000);
 
-
     Map<String, Integer> benefits;
     Calculator calculator = new Calculator();
 
@@ -49,14 +48,14 @@ public class BenefitRecord {
     }
 
     private void addBenefit(String benefitName, int benefitAmount) {
-        benefits.put(benefitName, -benefitAmount);
+        benefits.put(benefitName, benefitAmount);
     }
 
     public String getBadge() {
         int benefitAmount = getTotalBenefitPrice();
-        if (STAR_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount < STAR_BADGE_CRITERIA.get(MAX))
+        if (STAR_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount <= STAR_BADGE_CRITERIA.get(MAX))
             return STAR_BADGE.getValue();
-        if (TREE_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount < TREE_BADGE_CRITERIA.get(MAX))
+        if (TREE_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount <= TREE_BADGE_CRITERIA.get(MAX))
             return TREE_BADGE.getValue();
         if (SANTA_BADGE_CRITERIA.get(MIN) <= benefitAmount)
             return SANTA_BADGE.getValue();

@@ -72,7 +72,7 @@ public class OutputView {
 
     public void showTotalBenefitPrice(int totalBenefitPrice) {
         System.out.println(TOTAL_BENEFIT_PRICE_TITLE.getPrompt());
-        System.out.println(String.format(TOTAL_PRICE.getPrompt(), totalBenefitPrice));
+        System.out.println(String.format(TOTAL_BENEFIT_PRICE.getPrompt(), totalBenefitPrice));
     }
 
     public void showTotalPriceAfterDiscount(int totalPriceAfterDiscount) {
