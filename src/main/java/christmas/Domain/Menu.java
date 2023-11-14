@@ -10,7 +10,7 @@ public enum Menu {
     CAESAR_SALAD("애피타이저", "시저샐러드", 8_000),
 
     T_BONE_STEAK("메인", "티본스테이크", 55_000),
-    BARBECUE_RIB("메인", "바베큐립", 54_000),
+    BARBECUE_RIB("메인", "바비큐립", 54_000),
     SEA_FOOD_PASTA("메인", "해산물파스타", 35_000),
     CHRISTMAS_PASTA("메인", "크리스마스파스타", 25_000),
 
