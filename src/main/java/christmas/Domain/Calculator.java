@@ -6,6 +6,7 @@ import static christmas.Constant.Event.GIFT_EVENT;
 import static christmas.Constant.Event.SPECIAL_EVENT_DISCOUNT_AMOUNT;
 import static christmas.Constant.Event.WEEKDAY_EVENT_DISCOUNT_AMOUNT;
 import static christmas.Constant.Event.WEEKEND_EVENT_DISCOUNT_AMOUNT;
+import static christmas.Domain.Menu.*;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;
@@ -31,16 +32,16 @@ public class Calculator {
     }
 
     public int giftBenefit(){
-        return Menu.CHAMPAGNE.getPrice();
+        return CHAMPAGNE.getPrice();
     }
 
     public int calculateTotalPriceAfterDiscount(ReservedMenuGroup menuGroup, AppliedEventGroup appliedEventGroup){
         int totalPrice = calculateTotalPriceBeforeDiscount(menuGroup);
-        int benefitPriceWithoutGift = appliedEventGroup.getAppliedEventGroup().entrySet().stream()
-                .filter(benefit -> !benefit.getKey().equals(GIFT_EVENT.getValue()))
+        int totalEventAmountWithoutGift = appliedEventGroup.getAppliedEventGroup().entrySet().stream()
+                .filter(event -> !event.getKey().equals(GIFT_EVENT.getValue()))
                 .mapToInt(Entry::getValue)
                 .sum();
-        return totalPrice - benefitPriceWithoutGift;
+        return totalPrice - totalEventAmountWithoutGift;
     }
 
     public int calculateTotalPriceBeforeDiscount(ReservedMenuGroup menuGroup){
