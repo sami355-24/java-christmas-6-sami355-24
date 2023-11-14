@@ -22,6 +22,7 @@ public enum Benefit {
     public static final int SPECIAL_BENEFIT_DISCOUNT = 1000;
 
     public static final int DISCOUNT_CRITERIA = 10_000;
+    public static final int GIFT_COUNT = 1;
 
     Benefit(String benefitName) {
         this.value = benefitName;

@@ -1,7 +1,9 @@
 package christmas.View;
 
+import static christmas.Constant.Benefit.GIFT_COUNT;
 import static christmas.Message.EventPlannerPrompt.APPLIED_BENEFIT_TITLE;
 import static christmas.Message.EventPlannerPrompt.EVENT_BADGE_TITLE;
+import static christmas.Message.EventPlannerPrompt.GIFT_MENU;
 import static christmas.Message.EventPlannerPrompt.GIFT_TITLE;
 import static christmas.Message.EventPlannerPrompt.PREVIEW_EVENT_BENEFITS;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU;
@@ -51,8 +53,7 @@ public class OutputView {
         System.out.println(GIFT_TITLE.getPrompt());
         for (Entry<String, Integer> item : gift.entrySet()) {
             String menuName = item.getKey();
-            Integer menuCount = item.getValue();
-            System.out.println(String.format(RESERVED_MENU.getPrompt(), menuName, menuCount));
+            System.out.println(String.format(GIFT_MENU.getPrompt(), menuName, GIFT_COUNT));
         }
     }
 
