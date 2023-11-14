@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class AppliedEventGroupTest {
@@ -19,6 +20,7 @@ class AppliedEventGroupTest {
     private AppliedEventGroup appliedEventGroup2 = new AppliedEventGroup(reservedMenuGroup2, date);
 
     @Test
+    @DisplayName("올바른 배지를 받을 수 있는지 확인한다.")
     void getBadge() {
         String badge = appliedEventGroup1.getBadge();
         assertThat(badge).isEqualTo(SANTA_BADGE.getValue());
