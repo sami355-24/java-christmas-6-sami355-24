@@ -34,7 +34,7 @@ class ReservedOrderTest {
     }
 
     @Test
-    @DisplayName("예약한 메뉴들의 총 합이 맞는지 확인한다.")
+    @DisplayName("예약한 메뉴들의 할인전 총합이 맞는지 확인한다.")
     void getTotalPriceAfterDiscount() {
         int totalPriceBeforeDiscount = reservedOrder1.getTotalPriceBeforeDiscount();
 
