@@ -1,6 +1,7 @@
 package christmas.View;
 
 import static christmas.Message.EventPlannerPrompt.APPLIED_BENEFIT_TITLE;
+import static christmas.Message.EventPlannerPrompt.EVENT_BADGE_TITLE;
 import static christmas.Message.EventPlannerPrompt.GIFT_TITLE;
 import static christmas.Message.EventPlannerPrompt.PREVIEW_EVENT_BENEFITS;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU;
@@ -74,5 +75,10 @@ public class OutputView {
     public void showTotalPriceAfterDiscount(int totalPriceAfterDiscount) {
         System.out.println(TOTAL_PRICE_AFTER_DISCOUNT_TITLE.getPrompt());
         System.out.println(String.format(TOTAL_PRICE.getPrompt(), totalPriceAfterDiscount));
+    }
+
+    public void showEventBadge(String badge) {
+        System.out.println(EVENT_BADGE_TITLE.getPrompt());
+        System.out.println(String.format(TOTAL_PRICE_AFTER_DISCOUNT_TITLE.getPrompt(), badge));
     }
 }
