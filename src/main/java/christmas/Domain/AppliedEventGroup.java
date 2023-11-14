@@ -1,16 +1,16 @@
 package christmas.Domain;
 
-import static christmas.Constant.Event.CHRISTMAS_BENEFIT;
-import static christmas.Constant.Event.DISCOUNT_CRITERIA;
-import static christmas.Constant.Event.GIFT_BENEFIT;
-import static christmas.Constant.Event.GIFT_CRITERIA;
+import static christmas.Constant.Event.CHRISTMAS_EVENT;
+import static christmas.Constant.Event.EVENT_CRITERIA;
+import static christmas.Constant.Event.GIFT_EVENT;
+import static christmas.Constant.Event.GIFT_EVENT_CRITERIA;
 import static christmas.Constant.Event.NOTHING;
 import static christmas.Constant.Event.SANTA_BADGE;
-import static christmas.Constant.Event.SPECIAL_BENEFIT;
+import static christmas.Constant.Event.SPECIAL_EVENT;
 import static christmas.Constant.Event.STAR_BADGE;
 import static christmas.Constant.Event.TREE_BADGE;
-import static christmas.Constant.Event.WEEKDAY_BENEFIT;
-import static christmas.Constant.Event.WEEKEND_BENEFIT;
+import static christmas.Constant.Event.WEEKDAY_EVENT;
+import static christmas.Constant.Event.WEEKEND_EVENT;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Collections;
@@ -31,21 +31,21 @@ public class AppliedEventGroup {
 
     AppliedEventGroup(ReservedMenuGroup menuGroup, ReservedDate date) {
         this.benefits = new HashMap<>();
-        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= DISCOUNT_CRITERIA)
+        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= EVENT_CRITERIA)
             initBenefitRecords(menuGroup, date);
     }
 
     private void initBenefitRecords(ReservedMenuGroup menuGroup, ReservedDate date) {
         if (date.isChristmasNotPassed())
-            addBenefit(CHRISTMAS_BENEFIT.getValue(), calculator.calculateChristmasDiscount(date.getDay()));
+            addBenefit(CHRISTMAS_EVENT.getValue(), calculator.calculateChristmasDiscount(date.getDay()));
         if (date.isWeekDay())
-            addBenefit(WEEKDAY_BENEFIT.getValue(), calculator.calculateWeekdayDiscount(menuGroup.countDessert()));
+            addBenefit(WEEKDAY_EVENT.getValue(), calculator.calculateWeekdayDiscount(menuGroup.countDessert()));
         if (date.isWeekend())
-            addBenefit(WEEKEND_BENEFIT.getValue(), calculator.calculateWeekendDiscount(menuGroup.countMainDish()));
+            addBenefit(WEEKEND_EVENT.getValue(), calculator.calculateWeekendDiscount(menuGroup.countMainDish()));
         if (date.isStarDay())
-            addBenefit(SPECIAL_BENEFIT.getValue(), calculator.specialDiscount());
-        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_CRITERIA)
-            addBenefit(GIFT_BENEFIT.getValue(), calculator.giftBenefit());
+            addBenefit(SPECIAL_EVENT.getValue(), calculator.specialDiscount());
+        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_EVENT_CRITERIA)
+            addBenefit(GIFT_EVENT.getValue(), calculator.giftBenefit());
     }
 
     private void addBenefit(String benefitName, int benefitAmount) {

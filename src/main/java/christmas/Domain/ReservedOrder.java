@@ -1,6 +1,6 @@
 package christmas.Domain;
 
-import static christmas.Constant.Event.GIFT_CRITERIA;
+import static christmas.Constant.Event.GIFT_EVENT_CRITERIA;
 import static christmas.Domain.Menu.CHAMPAGNE;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
@@ -22,7 +22,7 @@ public class ReservedOrder {
 
 
     public Map<String, Integer> getGifts() {
-        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_CRITERIA)
+        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_EVENT_CRITERIA)
             return Map.of(CHAMPAGNE.getName(), CHAMPAGNE.getPrice());
         return Map.of();
     }

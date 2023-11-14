@@ -1,11 +1,11 @@
 package christmas.Domain;
 
-import static christmas.Constant.Event.CHRISTMAS_BASIC_BENEFIT_DISCOUNT;
-import static christmas.Constant.Event.CHRISTMAS_PER_DAY_BENEFIT_DISCOUNT;
-import static christmas.Constant.Event.GIFT_BENEFIT;
-import static christmas.Constant.Event.SPECIAL_BENEFIT_DISCOUNT;
-import static christmas.Constant.Event.WEEKDAY_BENEFIT_DISCOUNT;
-import static christmas.Constant.Event.WEEKEND_BENEFIT_DISCOUNT;
+import static christmas.Constant.Event.CHRISTMAS_EVENT_BASIC_DISCOUNT_AMOUNT;
+import static christmas.Constant.Event.CHRISTMAS_EVENT_PER_DAY_DISCOUNT_AMOUNT;
+import static christmas.Constant.Event.GIFT_EVENT;
+import static christmas.Constant.Event.SPECIAL_EVENT_DISCOUNT_AMOUNT;
+import static christmas.Constant.Event.WEEKDAY_EVENT_DISCOUNT_AMOUNT;
+import static christmas.Constant.Event.WEEKEND_EVENT_DISCOUNT_AMOUNT;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;
@@ -14,20 +14,20 @@ import java.util.Map.Entry;
 public class Calculator {
 
     public int calculateChristmasDiscount(int day) {
-        return CHRISTMAS_BASIC_BENEFIT_DISCOUNT +
-                CHRISTMAS_PER_DAY_BENEFIT_DISCOUNT * (day-1);
+        return CHRISTMAS_EVENT_BASIC_DISCOUNT_AMOUNT +
+                CHRISTMAS_EVENT_PER_DAY_DISCOUNT_AMOUNT * (day-1);
     }
 
     public int calculateWeekdayDiscount(int dessertCount) {
-        return dessertCount * WEEKDAY_BENEFIT_DISCOUNT;
+        return dessertCount * WEEKDAY_EVENT_DISCOUNT_AMOUNT;
     }
 
     public int calculateWeekendDiscount(int mainDishCount) {
-        return mainDishCount * WEEKEND_BENEFIT_DISCOUNT;
+        return mainDishCount * WEEKEND_EVENT_DISCOUNT_AMOUNT;
     }
 
     public int specialDiscount(){
-        return SPECIAL_BENEFIT_DISCOUNT;
+        return SPECIAL_EVENT_DISCOUNT_AMOUNT;
     }
 
     public int giftBenefit(){
@@ -37,7 +37,7 @@ public class Calculator {
     public int calculateTotalPriceAfterDiscount(ReservedMenuGroup menuGroup, AppliedEventGroup appliedEventGroup){
         int totalPrice = calculateTotalPriceBeforeDiscount(menuGroup);
         int benefitPriceWithoutGift = appliedEventGroup.getBenefits().entrySet().stream()
-                .filter(benefit -> !benefit.getKey().equals(GIFT_BENEFIT.getValue()))
+                .filter(benefit -> !benefit.getKey().equals(GIFT_EVENT.getValue()))
                 .mapToInt(Entry::getValue)
                 .sum();
         return totalPrice - benefitPriceWithoutGift;
