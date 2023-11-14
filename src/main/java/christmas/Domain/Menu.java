@@ -52,10 +52,6 @@ public enum Menu {
         return menu.category.equals("음료");
     }
 
-    public String getCategory() {
-        return category;
-    }
-
     public String getName() {
         return name;
     }
