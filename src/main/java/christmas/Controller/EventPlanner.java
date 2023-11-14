@@ -1,6 +1,5 @@
 package christmas.Controller;
 
-import christmas.Domain.Calculator;
 import christmas.Domain.ReservedDate;
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import christmas.Domain.ReservedOrder;
