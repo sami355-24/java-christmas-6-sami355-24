@@ -1,6 +1,7 @@
 package christmas.Domain;
 
 import static christmas.Constant.Benefit.DISCOUNT_CRITERIA;
+import static christmas.Constant.Benefit.GIFT_CRITERIA;
 import static christmas.Domain.Menu.CHAMPAGNE;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
@@ -11,13 +12,14 @@ public class ReservedOrder {
     private final ReservedMenuGroup menuGroup;
     private final ReservedDate date;
     private final Calculator calculator;
-    private final BenefitRecord benefitRecord;
+    private BenefitRecord benefitRecord;
 
     public ReservedOrder(ReservedMenuGroup menuGroup, ReservedDate date) {
         this.menuGroup = menuGroup;
         this.date = date;
         this.calculator = new Calculator();
-        this.benefitRecord = new BenefitRecord(menuGroup, date);
+        if (isDiscountAvailable())
+            this.benefitRecord = new BenefitRecord(menuGroup, date);
     }
 
     public boolean isDiscountAvailable() {
@@ -25,7 +27,9 @@ public class ReservedOrder {
     }
 
     public Map<String, Integer> getGifts() {
-        return Map.of(CHAMPAGNE.getName(), CHAMPAGNE.getPrice());
+        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_CRITERIA)
+            return Map.of(CHAMPAGNE.getName(), CHAMPAGNE.getPrice());
+        return Map.of();
     }
 
     public BenefitRecord getBenefitRecord() {

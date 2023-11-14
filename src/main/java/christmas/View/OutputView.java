@@ -1,6 +1,7 @@
 package christmas.View;
 
 import static christmas.Constant.Benefit.GIFT_COUNT;
+import static christmas.Constant.Benefit.NOTHING;
 import static christmas.Message.EventPlannerPrompt.APPLIED_BENEFIT_TITLE;
 import static christmas.Message.EventPlannerPrompt.APPLIED_EVENT;
 import static christmas.Message.EventPlannerPrompt.EVENT_BADGE_TITLE;
@@ -53,6 +54,11 @@ public class OutputView {
 
     public void showGift(Map<String, Integer> gift) {
         System.out.println(GIFT_TITLE.getPrompt());
+        if (gift.isEmpty()) {
+            System.out.println(NOTHING.getValue());
+            return;
+        }
+
         for (Entry<String, Integer> item : gift.entrySet()) {
             String menuName = item.getKey();
             System.out.println(String.format(GIFT_MENU.getPrompt(), menuName, GIFT_COUNT));
