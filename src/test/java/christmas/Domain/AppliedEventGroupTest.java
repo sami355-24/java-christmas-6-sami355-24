@@ -35,6 +35,7 @@ class AppliedEventGroupTest {
     }
 
     @Test
+    @DisplayName("이벤트 금액들이 있는 리스트를 구한다.")
     void findEventAmounts() {
         List<Integer> eventAmounts1 = appliedEventGroup1.findEventAmounts();
         assertThat(eventAmounts1).containsExactly(25_000, 1_200,2_023,1_000);
