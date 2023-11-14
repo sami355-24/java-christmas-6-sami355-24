@@ -25,6 +25,12 @@ public class Calculator {
         return Menu.CHAMPAGNE.getPrice();
     }
 
+    public int calculateTotalPriceAfterDiscount(ReservedMenuGroup menuGroup, BenefitRecord benefitRecord){
+        int totalPrice = calculateTotalPriceBeforeDiscount(menuGroup);
+        int totalBenefitAmount = calculateTotalBenefitAmount(benefitRecord);
+        return totalPrice - totalBenefitAmount;
+    }
+
     public int calculateTotalPriceBeforeDiscount(ReservedMenuGroup menuGroup){
         Map<Menu, Integer> menus = menuGroup.getMenuGroup();
         int totalPrice = 0;
