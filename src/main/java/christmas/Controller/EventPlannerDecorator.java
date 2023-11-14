@@ -1,5 +1,8 @@
 package christmas.Controller;
 
+import static christmas.Message.Excepton.ExceptionPrompt.INVALID_DATE;
+import static christmas.Message.Excepton.ExceptionPrompt.INVALID_MENU;
+
 import christmas.Domain.ReservedDate;
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import christmas.Exception.CommonValidateException;
@@ -20,7 +23,7 @@ public class EventPlannerDecorator extends EventPlanner {
             try {
                 reservedDate = super.reserveDate();
             } catch (DateException | CommonValidateException e) {
-                System.out.println(e.getMessage());
+                System.out.println(INVALID_DATE.getPrompt());
             }
         } while (reservedDate == null);
         return reservedDate;
@@ -33,7 +36,7 @@ public class EventPlannerDecorator extends EventPlanner {
             try {
                 reservedMenuGroup = super.reservedMenuGroup();
             } catch (MenuException | CommonValidateException e) {
-                System.out.println(e.getMessage());
+                System.out.println(INVALID_MENU.getPrompt());
             }
         } while (reservedMenuGroup == null);
         return reservedMenuGroup;
