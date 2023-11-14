@@ -114,7 +114,7 @@ class ReservedDateTest {
 
         ReservedDate reservedDate = new ReservedDate(CHRISTMAS);
 
-        assertTrue(reservedDate.isChristmasPassed());
+        assertTrue(reservedDate.isChristmasNotPassed());
     }
 
     @Test
@@ -124,6 +124,6 @@ class ReservedDateTest {
 
         ReservedDate reservedDate = new ReservedDate(CHRISTMAS);
 
-        assertFalse(reservedDate.isChristmasPassed());
+        assertFalse(reservedDate.isChristmasNotPassed());
     }
 }
