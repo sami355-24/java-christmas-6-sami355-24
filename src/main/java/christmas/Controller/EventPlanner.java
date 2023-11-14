@@ -29,10 +29,10 @@ public class EventPlanner {
         outputView.showReservedMenu(reservedMenuGroup);
         outputView.showTotalPriceBeforeDiscount(reservedOrder.getTotalPriceBeforeDiscount());
         outputView.showGift(reservedOrder.getGifts());
-        outputView.showBenefitRecords(reservedOrder.getBenefitRecord());
-        outputView.showTotalBenefitPrice(reservedOrder.getBenefitRecord().findTotalEventAmount());
+        outputView.showBenefitRecords(reservedOrder.getAppliedEvent());
+        outputView.showTotalBenefitPrice(reservedOrder.getAppliedEvent().findTotalEventAmount());
         outputView.showTotalPriceAfterDiscount(reservedOrder.getTotalPriceAfterDiscount());
-        outputView.showEventBadge(reservedOrder.getBenefitRecord().getBadge());
+        outputView.showEventBadge(reservedOrder.getAppliedEvent().getBadge());
     }
 
     private void init() {

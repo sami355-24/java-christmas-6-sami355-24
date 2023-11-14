@@ -27,7 +27,7 @@ public class ReservedOrder {
         return Map.of();
     }
 
-    public AppliedEventGroup getBenefitRecord() {
+    public AppliedEventGroup getAppliedEvent() {
         return new AppliedEventGroup(menuGroup, date);
     }
 

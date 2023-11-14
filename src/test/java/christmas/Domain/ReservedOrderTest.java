@@ -27,7 +27,7 @@ class ReservedOrderTest {
     @Test
     @DisplayName("주문한 메뉴의 전체 금액이 할인을 받을 수 있는 기준 금액보다 높을때 할인 받을 수 있다.")
     void getBenefitRecord() {
-        AppliedEventGroup appliedEventGroup = reservedOrder2.getBenefitRecord();
+        AppliedEventGroup appliedEventGroup = reservedOrder2.getAppliedEvent();
 
         assertThat(appliedEventGroup.getAppliedEventGroup()).isNotEmpty();
     }

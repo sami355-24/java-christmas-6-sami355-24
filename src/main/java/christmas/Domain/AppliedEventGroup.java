@@ -29,7 +29,7 @@ public class AppliedEventGroup {
     Map<String, Integer> appliedEventGroup;
     Calculator calculator = new Calculator();
 
-    AppliedEventGroup(ReservedMenuGroup menuGroup, ReservedDate date) {
+    public AppliedEventGroup(ReservedMenuGroup menuGroup, ReservedDate date) {
         this.appliedEventGroup = new HashMap<>();
         if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= EVENT_CRITERIA)
             initAppliedEventGroup(menuGroup, date);
