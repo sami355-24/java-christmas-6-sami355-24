@@ -37,18 +37,18 @@ public class EventPlanner {
 
     private void init() {
         outputView.welcomeMessage();
-        reserveDate();
-        reservedMenuGroup();
+        this.reservedDate = reserveDate();
+        this.reservedMenuGroup = reservedMenuGroup();
         this.reservedOrder = new ReservedOrder(reservedMenuGroup, reservedDate);
     }
 
-    public void reserveDate() {
+    public ReservedDate reserveDate() {
         String inputDay = inputView.inputDay();
-        this.reservedDate = new ReservedDate(inputDay);
+        return new ReservedDate(inputDay);
     }
 
-    public void reservedMenuGroup() {
+    public ReservedMenuGroup reservedMenuGroup() {
         String inputMenu = inputView.inputMenu();
-        this.reservedMenuGroup = new ReservedMenuGroup(inputMenu);
+        return new ReservedMenuGroup(inputMenu);
     }
 }
