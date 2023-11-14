@@ -14,4 +14,8 @@ public class InputView {
         return Console.readLine();
     }
 
+    public String inputMenu(){
+        System.out.println(ASK_RESERVATION_MENU.getPrompt());
+        return Console.readLine();
+    }
 }
