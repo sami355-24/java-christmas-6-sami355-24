@@ -63,4 +63,8 @@ public class OutputView {
             System.out.println(String.format(RESERVED_MENU.getPrompt(), benefitName, benefitAmount));
         }
     }
+
+    public void showTotalBenefitPrice(int totalBenefitPrice) {
+        System.out.println(String.format(TOTAL_PRICE.getPrompt(), totalBenefitPrice));
+    }
 }
