@@ -33,4 +33,12 @@ public class Calculator {
         }
         return totalPrice;
     }
+
+    public int calculateTotalBenefitAmount(BenefitRecord benefitRecord){
+        int totalBenefitAmount = 0;
+        for (int benefitAmount : benefitRecord.getBenefitAmounts()) {
+            totalBenefitAmount += benefitAmount;
+        }
+        return totalBenefitAmount;
+    }
 }

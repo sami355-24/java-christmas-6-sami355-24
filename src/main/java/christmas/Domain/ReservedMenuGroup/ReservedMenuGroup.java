@@ -9,6 +9,7 @@ import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.idDu
 import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.isValidFormat;
 import static java.util.Collections.*;
 
+import christmas.Domain.BenefitRecord;
 import christmas.Domain.Menu;
 import java.util.EnumMap;
 import java.util.List;
@@ -16,12 +17,12 @@ import java.util.Map;
 
 public class ReservedMenuGroup {
 
-    private final EnumMap<Menu, Integer> menuGroup;
-
     static final String COMMA = ",";
     static final String HYPHEN = "-";
     static final int menu = 0;
     static final int count = 1;
+
+    private final EnumMap<Menu, Integer> menuGroup;
 
     public ReservedMenuGroup(String menuInput) {
         this.menuGroup = new EnumMap<>(Menu.class);
