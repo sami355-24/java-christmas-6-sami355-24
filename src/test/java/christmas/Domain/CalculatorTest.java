@@ -77,4 +77,24 @@ class CalculatorTest {
 
         assertEquals(3000, calculatedPrice);
     }
+
+    @Test
+    @DisplayName("할인 후 예상 결제 금액을 계산한다.")
+    void calculateTotalPriceAfterDiscountTest() {
+        ReservedMenuGroup menuGroup = new ReservedMenuGroup(menuInput);
+        BenefitRecord benefitRecord = new BenefitRecord();
+        benefitRecord.addBenefit("테스트1", 1000);
+        benefitRecord.addBenefit("테스트2", 2000);
+
+        int calculatedPrice = calculator.calculateTotalPriceAfterDiscount(menuGroup, benefitRecord);
+
+        assertEquals(
+                Menu.SEA_FOOD_PASTA.getPrice() * 2 +
+                        Menu.RED_WINE.getPrice() +
+                        Menu.CHOCO_CAKE.getPrice() -
+                        3000
+                , calculatedPrice
+        );
+    }
+
 }
