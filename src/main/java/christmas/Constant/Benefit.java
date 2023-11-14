@@ -7,9 +7,9 @@ public enum Benefit {
     SPECIAL_BENEFIT("특별 할인"),
     GIFT_BENEFIT("증정 이벤트"),
 
-    STAR_BADGE("별 배지"),
-    TREE_BADGE("트리 배지"),
-    SANTA_BADGE("산타 배지"),
+    STAR_BADGE("별"),
+    TREE_BADGE("트리"),
+    SANTA_BADGE("산타"),
 
     NOTHING("없음");
 
