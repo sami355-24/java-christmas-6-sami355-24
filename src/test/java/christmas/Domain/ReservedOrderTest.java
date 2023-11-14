@@ -34,7 +34,11 @@ class ReservedOrderTest {
     }
 
     @Test
+    @DisplayName("예약한 메뉴들의 총 합이 맞는지 확인한다.")
     void getTotalPriceAfterDiscount() {
+        int totalPriceBeforeDiscount = reservedOrder1.getTotalPriceBeforeDiscount();
+
+        assertThat(totalPriceBeforeDiscount).isEqualTo(8500);
     }
 
     @Test
