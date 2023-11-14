@@ -2,12 +2,14 @@ package christmas.Domain;
 
 import static christmas.Constant.Benefit.CHRISTMAS_BASIC_BENEFIT_DISCOUNT;
 import static christmas.Constant.Benefit.CHRISTMAS_PER_DAY_BENEFIT_DISCOUNT;
+import static christmas.Constant.Benefit.GIFT_BENEFIT;
 import static christmas.Constant.Benefit.SPECIAL_BENEFIT_DISCOUNT;
 import static christmas.Constant.Benefit.WEEKDAY_BENEFIT_DISCOUNT;
 import static christmas.Constant.Benefit.WEEKEND_BENEFIT_DISCOUNT;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Calculator {
 
@@ -34,8 +36,11 @@ public class Calculator {
 
     public int calculateTotalPriceAfterDiscount(ReservedMenuGroup menuGroup, BenefitRecord benefitRecord){
         int totalPrice = calculateTotalPriceBeforeDiscount(menuGroup);
-        int totalBenefitAmount = calculateTotalBenefitAmount(benefitRecord);
-        return totalPrice - totalBenefitAmount;
+        int benefitPriceWithoutGift = benefitRecord.getBenefits().entrySet().stream()
+                .filter(benefit -> !benefit.getKey().equals(GIFT_BENEFIT.getValue()))
+                .mapToInt(Entry::getValue)
+                .sum();
+        return totalPrice - benefitPriceWithoutGift;
     }
 
     public int calculateTotalPriceBeforeDiscount(ReservedMenuGroup menuGroup){
