@@ -26,35 +26,35 @@ class CalculatorTest {
 
     @Test
     @DisplayName("주중 할인 금액을 계산한다.")
-    void calculateWeekdayDiscountTest(){
+    void calculateWeekdayDiscountTest() {
         int calculated = calculator.calculateWeekdayDiscount(dessertCount);
         assertEquals(discountPriceInWeekday, calculated);
     }
 
     @Test
     @DisplayName("주말 할인 금액을 계산한다.")
-    void calculateWeekendDiscountTest(){
+    void calculateWeekendDiscountTest() {
         int calculated = calculator.calculateWeekendDiscount(mainDishCount);
         assertEquals(discountPriceInWeekend, calculated);
     }
 
     @Test
     @DisplayName("특별 할인 금액을 계산한다.")
-    void specialDiscountTest(){
+    void specialDiscountTest() {
         int calculated = calculator.specialDiscount();
         assertEquals(1000, calculated);
     }
 
     @Test
     @DisplayName("증정 혜택 금액을 계산한다.")
-    void giftBenefitTest(){
+    void giftBenefitTest() {
         int calculated = calculator.giftBenefit();
         assertEquals(Menu.CHAMPAGNE.getPrice(), calculated);
     }
 
     @Test
     @DisplayName("할인 적용 전 총 금액을 계산한다.")
-    void calculateTotalPriceBeforeDiscountTest(){
+    void calculateTotalPriceBeforeDiscountTest() {
         ReservedMenuGroup menuGroup = new ReservedMenuGroup(menuInput);
         int calculatedPrice = calculator.calculateTotalPriceBeforeDiscount(menuGroup);
 
@@ -64,5 +64,17 @@ class CalculatorTest {
                         Menu.CHOCO_CAKE.getPrice()
                 , calculatedPrice
         );
+    }
+
+    @Test
+    @DisplayName("할인 적용 후 총 금액을 계산한다.")
+    void calculateTotalBenefitAmountTest() {
+        BenefitRecord benefitRecord = new BenefitRecord();
+        benefitRecord.addBenefit("테스트1", 1000);
+        benefitRecord.addBenefit("테스트2", 2000);
+
+        int calculatedPrice = calculator.calculateTotalBenefitAmount(benefitRecord);
+
+        assertEquals(3000, calculatedPrice);
     }
 }
