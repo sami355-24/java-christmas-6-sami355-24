@@ -31,8 +31,8 @@ public class EventPlanner {
         outputView.showReservedMenu(reservedMenuGroup);
         outputView.showTotalPriceBeforeDiscount(reservedOrder.getTotalPriceBeforeDiscount());
         outputView.showGift(reservedOrder.getGifts());
-        outputView.showBenefitRecords(reservedOrder.getAppliedEvent());
-        outputView.showTotalBenefitPrice(reservedOrder.getAppliedEvent().findTotalEventAmount());
+        outputView.showAppliedEventGroup(reservedOrder.getAppliedEvent());
+        outputView.showTotalAppliedEventAmount(reservedOrder.getAppliedEvent().findTotalEventAmount());
         outputView.showTotalPriceAfterDiscount(reservedOrder.getTotalPriceAfterDiscount());
         outputView.showEventBadge(reservedOrder.getAppliedEvent().getBadge());
     }

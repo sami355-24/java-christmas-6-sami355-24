@@ -9,8 +9,8 @@ public enum EventPlannerPrompt {
     RESERVED_MENU_TITLE("\n<주문 메뉴>"),
     TOTAL_PRICE_BEFORE_DISCOUNT_TITLE("\n<할인 전 총주문 금액>"),
     GIFT_TITLE("\n<증정 메뉴>"),
-    APPLIED_BENEFIT_TITLE("\n<혜택 내역>"),
-    TOTAL_BENEFIT_PRICE_TITLE("\n<총혜택 금액>"),
+    APPLIED_EVENT_TITLE("\n<혜택 내역>"),
+    TOTAL_APPLIED_EVENT_PRICE_TITLE("\n<총혜택 금액>"),
     TOTAL_PRICE_AFTER_DISCOUNT_TITLE("\n<할인 후 예상 결제 금액>"),
     EVENT_BADGE_TITLE("\n<12월 이벤트 배지>"),
 
@@ -18,7 +18,7 @@ public enum EventPlannerPrompt {
     TOTAL_PRICE("%,d원"),
     GIFT_MENU("%s %,d개"),
     APPLIED_EVENT("%s -%,d원"),
-    TOTAL_BENEFIT_PRICE("-%,d원");
+    TOTAL_APPLIED_EVENT_PRICE("-%,d원");
 
     private final String prompt;
 

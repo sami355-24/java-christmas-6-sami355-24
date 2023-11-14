@@ -2,7 +2,7 @@ package christmas.View;
 
 import static christmas.Constant.Event.GIFT_COUNT;
 import static christmas.Constant.Event.NOTHING;
-import static christmas.Message.EventPlannerPrompt.APPLIED_BENEFIT_TITLE;
+import static christmas.Message.EventPlannerPrompt.APPLIED_EVENT_TITLE;
 import static christmas.Message.EventPlannerPrompt.APPLIED_EVENT;
 import static christmas.Message.EventPlannerPrompt.EVENT_BADGE_TITLE;
 import static christmas.Message.EventPlannerPrompt.GIFT_MENU;
@@ -10,8 +10,8 @@ import static christmas.Message.EventPlannerPrompt.GIFT_TITLE;
 import static christmas.Message.EventPlannerPrompt.PREVIEW_EVENT_BENEFITS;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU_TITLE;
-import static christmas.Message.EventPlannerPrompt.TOTAL_BENEFIT_PRICE;
-import static christmas.Message.EventPlannerPrompt.TOTAL_BENEFIT_PRICE_TITLE;
+import static christmas.Message.EventPlannerPrompt.TOTAL_APPLIED_EVENT_PRICE;
+import static christmas.Message.EventPlannerPrompt.TOTAL_APPLIED_EVENT_PRICE_TITLE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE_AFTER_DISCOUNT_TITLE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE_BEFORE_DISCOUNT_TITLE;
@@ -62,11 +62,11 @@ public class OutputView {
         }
     }
 
-    public void showBenefitRecords(AppliedEventGroup records){
-        Set<Entry<String, Integer>> entries = records.getAppliedEventGroup().entrySet();
-        System.out.println(APPLIED_BENEFIT_TITLE.getPrompt());
+    public void showAppliedEventGroup(AppliedEventGroup events){
+        Set<Entry<String, Integer>> entries = events.getAppliedEventGroup().entrySet();
+        System.out.println(APPLIED_EVENT_TITLE.getPrompt());
 
-        if(records.getAppliedEventGroup().isEmpty()){
+        if(events.getAppliedEventGroup().isEmpty()){
             System.out.println(NOTHING.getValue());
             return;
         }
@@ -78,13 +78,13 @@ public class OutputView {
         }
     }
 
-    public void showTotalBenefitPrice(int totalBenefitPrice) {
-        System.out.println(TOTAL_BENEFIT_PRICE_TITLE.getPrompt());
+    public void showTotalAppliedEventAmount(int totalBenefitPrice) {
+        System.out.println(TOTAL_APPLIED_EVENT_PRICE_TITLE.getPrompt());
         if (totalBenefitPrice == 0) {
             System.out.println(NOTHING.getValue());
             return;
         }
-        System.out.println(String.format(TOTAL_BENEFIT_PRICE.getPrompt(), totalBenefitPrice));
+        System.out.println(String.format(TOTAL_APPLIED_EVENT_PRICE.getPrompt(), totalBenefitPrice));
     }
 
     public void showTotalPriceAfterDiscount(int totalPriceAfterDiscount) {
