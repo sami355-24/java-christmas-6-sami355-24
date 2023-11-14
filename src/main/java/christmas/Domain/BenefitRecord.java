@@ -53,7 +53,7 @@ public class BenefitRecord {
     }
 
     public String getBadge() {
-        int benefitAmount = calculator.calculateTotalBenefitAmount(this);
+        int benefitAmount = getTotalBenefitPrice();
         if (STAR_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount < STAR_BADGE_CRITERIA.get(MAX))
             return STAR_BADGE.getValue();
         if (TREE_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount < TREE_BADGE_CRITERIA.get(MAX))
@@ -62,6 +62,10 @@ public class BenefitRecord {
             return SANTA_BADGE.getValue();
 
         return NOTHING.getValue();
+    }
+
+    public int getTotalBenefitPrice() {
+        return calculator.calculateTotalBenefitAmount(this);
     }
 
     public Map<String, Integer> getBenefits() {
