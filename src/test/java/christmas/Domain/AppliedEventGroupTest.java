@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
+import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,6 +36,8 @@ class AppliedEventGroupTest {
 
     @Test
     void findEventAmounts() {
+        List<Integer> eventAmounts1 = appliedEventGroup1.findEventAmounts();
+        assertThat(eventAmounts1).containsExactly(25_000, 1_200,2_023,1_000);
     }
 
     @Test
