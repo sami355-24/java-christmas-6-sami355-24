@@ -66,10 +66,10 @@ public class OutputView {
     }
 
     public void showBenefitRecords(AppliedEventGroup records){
-        Set<Entry<String, Integer>> entries = records.getBenefits().entrySet();
+        Set<Entry<String, Integer>> entries = records.getAppliedEventGroup().entrySet();
         System.out.println(APPLIED_BENEFIT_TITLE.getPrompt());
 
-        if(records.getBenefits().isEmpty()){
+        if(records.getAppliedEventGroup().isEmpty()){
             System.out.println(NOTHING.getValue());
             return;
         }

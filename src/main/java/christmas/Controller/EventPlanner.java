@@ -30,7 +30,7 @@ public class EventPlanner {
         outputView.showTotalPriceBeforeDiscount(reservedOrder.getTotalPriceBeforeDiscount());
         outputView.showGift(reservedOrder.getGifts());
         outputView.showBenefitRecords(reservedOrder.getBenefitRecord());
-        outputView.showTotalBenefitPrice(reservedOrder.getBenefitRecord().getTotalBenefitPrice());
+        outputView.showTotalBenefitPrice(reservedOrder.getBenefitRecord().findTotalEventAmount());
         outputView.showTotalPriceAfterDiscount(reservedOrder.getTotalPriceAfterDiscount());
         outputView.showEventBadge(reservedOrder.getBenefitRecord().getBadge());
     }

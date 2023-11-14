@@ -26,53 +26,52 @@ public class AppliedEventGroup {
     private final List<Integer> TREE_BADGE_CRITERIA = List.of(10_000, 19_999);
     private final List<Integer> SANTA_BADGE_CRITERIA = List.of(20_000);
 
-    Map<String, Integer> benefits;
+    Map<String, Integer> appliedEventGroup;
     Calculator calculator = new Calculator();
 
     AppliedEventGroup(ReservedMenuGroup menuGroup, ReservedDate date) {
-        this.benefits = new HashMap<>();
+        this.appliedEventGroup = new HashMap<>();
         if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= EVENT_CRITERIA)
-            initBenefitRecords(menuGroup, date);
+            initAppliedEventGroup(menuGroup, date);
     }
 
-    private void initBenefitRecords(ReservedMenuGroup menuGroup, ReservedDate date) {
+    private void initAppliedEventGroup(ReservedMenuGroup menuGroup, ReservedDate date) {
         if (date.isChristmasNotPassed())
-            addBenefit(CHRISTMAS_EVENT.getValue(), calculator.calculateChristmasDiscount(date.getDay()));
+            addEvent(CHRISTMAS_EVENT.getValue(), calculator.calculateChristmasDiscount(date.getDay()));
         if (date.isWeekDay())
-            addBenefit(WEEKDAY_EVENT.getValue(), calculator.calculateWeekdayDiscount(menuGroup.countDessert()));
+            addEvent(WEEKDAY_EVENT.getValue(), calculator.calculateWeekdayDiscount(menuGroup.countDessert()));
         if (date.isWeekend())
-            addBenefit(WEEKEND_EVENT.getValue(), calculator.calculateWeekendDiscount(menuGroup.countMainDish()));
+            addEvent(WEEKEND_EVENT.getValue(), calculator.calculateWeekendDiscount(menuGroup.countMainDish()));
         if (date.isStarDay())
-            addBenefit(SPECIAL_EVENT.getValue(), calculator.specialDiscount());
+            addEvent(SPECIAL_EVENT.getValue(), calculator.specialDiscount());
         if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_EVENT_CRITERIA)
-            addBenefit(GIFT_EVENT.getValue(), calculator.giftBenefit());
+            addEvent(GIFT_EVENT.getValue(), calculator.giftBenefit());
     }
 
-    private void addBenefit(String benefitName, int benefitAmount) {
-        benefits.put(benefitName, benefitAmount);
+    private void addEvent(String eventName, int eventAmount) {
+        appliedEventGroup.put(eventName, eventAmount);
     }
 
     public String getBadge() {
-        int benefitAmount = getTotalBenefitPrice();
-        if (STAR_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount <= STAR_BADGE_CRITERIA.get(MAX))
+        int eventAmount = findTotalEventAmount();
+        if (STAR_BADGE_CRITERIA.get(MIN) <= eventAmount && eventAmount <= STAR_BADGE_CRITERIA.get(MAX))
             return STAR_BADGE.getValue();
-        if (TREE_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount <= TREE_BADGE_CRITERIA.get(MAX))
+        if (TREE_BADGE_CRITERIA.get(MIN) <= eventAmount && eventAmount <= TREE_BADGE_CRITERIA.get(MAX))
             return TREE_BADGE.getValue();
-        if (SANTA_BADGE_CRITERIA.get(MIN) <= benefitAmount)
+        if (SANTA_BADGE_CRITERIA.get(MIN) <= eventAmount)
             return SANTA_BADGE.getValue();
 
         return NOTHING.getValue();
     }
 
-    public int getTotalBenefitPrice() {
+    public int findTotalEventAmount() {
         return calculator.calculateTotalBenefitAmount(this);
     }
-
-    public Map<String, Integer> getBenefits() {
-        return Collections.unmodifiableMap(benefits);
+    public List<Integer> findEventAmounts() {
+        return appliedEventGroup.values().stream().toList();
     }
 
-    public List<Integer> getBenefitAmounts() {
-        return benefits.values().stream().toList();
+    public Map<String, Integer> getAppliedEventGroup() {
+        return Collections.unmodifiableMap(appliedEventGroup);
     }
 }

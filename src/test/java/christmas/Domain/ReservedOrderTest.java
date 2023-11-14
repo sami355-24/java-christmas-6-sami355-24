@@ -29,7 +29,7 @@ class ReservedOrderTest {
     void getBenefitRecord() {
         AppliedEventGroup appliedEventGroup = reservedOrder2.getBenefitRecord();
 
-        assertThat(appliedEventGroup.getBenefits()).isNotEmpty();
+        assertThat(appliedEventGroup.getAppliedEventGroup()).isNotEmpty();
     }
 
     @Test

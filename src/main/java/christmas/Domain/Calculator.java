@@ -36,7 +36,7 @@ public class Calculator {
 
     public int calculateTotalPriceAfterDiscount(ReservedMenuGroup menuGroup, AppliedEventGroup appliedEventGroup){
         int totalPrice = calculateTotalPriceBeforeDiscount(menuGroup);
-        int benefitPriceWithoutGift = appliedEventGroup.getBenefits().entrySet().stream()
+        int benefitPriceWithoutGift = appliedEventGroup.getAppliedEventGroup().entrySet().stream()
                 .filter(benefit -> !benefit.getKey().equals(GIFT_EVENT.getValue()))
                 .mapToInt(Entry::getValue)
                 .sum();
@@ -54,7 +54,7 @@ public class Calculator {
 
     public int calculateTotalBenefitAmount(AppliedEventGroup appliedEventGroup){
         int totalBenefitAmount = 0;
-        for (int benefitAmount : appliedEventGroup.getBenefitAmounts()) {
+        for (int benefitAmount : appliedEventGroup.findEventAmounts()) {
             totalBenefitAmount += benefitAmount;
         }
         return totalBenefitAmount;
