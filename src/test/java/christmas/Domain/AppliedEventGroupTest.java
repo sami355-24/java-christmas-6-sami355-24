@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.List;
+import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -42,6 +43,9 @@ class AppliedEventGroupTest {
     }
 
     @Test
+    @DisplayName("적용된 이벤트가 있는 리스트를 구한다.")
     void getAppliedEventGroup() {
+        Map<String, Integer> appliedEventGroup = appliedEventGroup1.getAppliedEventGroup();
+        assertThat(appliedEventGroup.size()).isEqualTo(4);
     }
 }
