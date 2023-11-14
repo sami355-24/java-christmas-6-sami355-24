@@ -69,6 +69,11 @@ public class OutputView {
         Set<Entry<String, Integer>> entries = records.getBenefits().entrySet();
         System.out.println(APPLIED_BENEFIT_TITLE.getPrompt());
 
+        if(records.getBenefits().isEmpty()){
+            System.out.println(NOTHING.getValue());
+            return;
+        }
+
         for (Entry<String, Integer> entry : entries) {
             String benefitName = entry.getKey();
             Integer benefitAmount = entry.getValue();
@@ -83,6 +88,10 @@ public class OutputView {
 
     public void showTotalPriceAfterDiscount(int totalPriceAfterDiscount) {
         System.out.println(TOTAL_PRICE_AFTER_DISCOUNT_TITLE.getPrompt());
+        if (totalPriceAfterDiscount == 0) {
+            System.out.println(NOTHING.getValue());
+            return;
+        }
         System.out.println(String.format(TOTAL_PRICE.getPrompt(), totalPriceAfterDiscount));
     }
 

@@ -18,13 +18,9 @@ public class ReservedOrder {
         this.menuGroup = menuGroup;
         this.date = date;
         this.calculator = new Calculator();
-        if (isDiscountAvailable())
-            this.benefitRecord = new BenefitRecord(menuGroup, date);
+        this.benefitRecord = new BenefitRecord(menuGroup, date);
     }
 
-    public boolean isDiscountAvailable() {
-        return calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= DISCOUNT_CRITERIA;
-    }
 
     public Map<String, Integer> getGifts() {
         if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_CRITERIA)

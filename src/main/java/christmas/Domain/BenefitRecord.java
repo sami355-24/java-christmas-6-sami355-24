@@ -1,7 +1,9 @@
 package christmas.Domain;
 
 import static christmas.Constant.Benefit.CHRISTMAS_BENEFIT;
+import static christmas.Constant.Benefit.DISCOUNT_CRITERIA;
 import static christmas.Constant.Benefit.GIFT_BENEFIT;
+import static christmas.Constant.Benefit.GIFT_CRITERIA;
 import static christmas.Constant.Benefit.NOTHING;
 import static christmas.Constant.Benefit.SANTA_BADGE;
 import static christmas.Constant.Benefit.SPECIAL_BENEFIT;
@@ -18,8 +20,6 @@ import java.util.Map;
 
 public class BenefitRecord {
 
-    private final int GIFT_BENEFIT_CRITERIA = 120_000;
-
     private final int MIN = 0;
     private final int MAX = 1;
     private final List<Integer> STAR_BADGE_CRITERIA = List.of(5_000, 9_999);
@@ -31,7 +31,8 @@ public class BenefitRecord {
 
     BenefitRecord(ReservedMenuGroup menuGroup, ReservedDate date) {
         this.benefits = new HashMap<>();
-        initBenefitRecords(menuGroup, date);
+        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= DISCOUNT_CRITERIA)
+            initBenefitRecords(menuGroup, date);
     }
 
     private void initBenefitRecords(ReservedMenuGroup menuGroup, ReservedDate date) {
@@ -43,7 +44,7 @@ public class BenefitRecord {
             addBenefit(WEEKEND_BENEFIT.getValue(), calculator.calculateWeekendDiscount(menuGroup.countMainDish()));
         if (date.isStarDay())
             addBenefit(SPECIAL_BENEFIT.getValue(), calculator.specialDiscount());
-        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_BENEFIT_CRITERIA)
+        if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_CRITERIA)
             addBenefit(GIFT_BENEFIT.getValue(), calculator.giftBenefit());
     }
 
