@@ -26,4 +26,8 @@ public class ReservedOrder {
     public Map<String, Integer> getBenefitRecord() {
         return benefitRecord.getBenefits();
     }
+
+    public int getTotalPriceAfterDiscount() {
+        return calculator.calculateTotalPriceAfterDiscount(menuGroup, benefitRecord);
+    }
 }
