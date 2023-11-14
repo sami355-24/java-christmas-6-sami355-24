@@ -28,8 +28,8 @@ public class ReservedOrder {
         return Map.of(CHAMPAGNE.getName(), CHAMPAGNE.getPrice());
     }
 
-    public Map<String, Integer> getBenefitRecord() {
-        return benefitRecord.getBenefits();
+    public BenefitRecord getBenefitRecord() {
+        return new BenefitRecord(menuGroup, date);
     }
 
     public int getTotalPriceAfterDiscount() {
