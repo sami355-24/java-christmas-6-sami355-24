@@ -48,7 +48,7 @@ class CalculatorTest {
     @Test
     @DisplayName("증정 혜택 금액을 계산한다.")
     void giftBenefitTest() {
-        int calculated = calculator.giftBenefit();
+        int calculated = calculator.giftEventAmount();
         assertEquals(Menu.CHAMPAGNE.getPrice(), calculated);
     }
 

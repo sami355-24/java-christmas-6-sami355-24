@@ -45,7 +45,7 @@ public class AppliedEventGroup {
         if (date.isStarDay())
             addEvent(SPECIAL_EVENT.getValue(), calculator.specialDiscount());
         if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= GIFT_EVENT_CRITERIA)
-            addEvent(GIFT_EVENT.getValue(), calculator.giftBenefit());
+            addEvent(GIFT_EVENT.getValue(), calculator.giftEventAmount());
     }
 
     private void addEvent(String eventName, int eventAmount) {
@@ -65,7 +65,7 @@ public class AppliedEventGroup {
     }
 
     public int findTotalEventAmount() {
-        return calculator.calculateTotalBenefitAmount(this);
+        return calculator.calculateTotalEventAmount(this);
     }
     public List<Integer> findEventAmounts() {
         return appliedEventGroup.values().stream().toList();

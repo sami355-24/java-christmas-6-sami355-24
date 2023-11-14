@@ -31,7 +31,7 @@ public class Calculator {
         return SPECIAL_EVENT_DISCOUNT_AMOUNT;
     }
 
-    public int giftBenefit(){
+    public int giftEventAmount(){
         return CHAMPAGNE.getPrice();
     }
 
@@ -53,11 +53,11 @@ public class Calculator {
         return totalPrice;
     }
 
-    public int calculateTotalBenefitAmount(AppliedEventGroup appliedEventGroup){
-        int totalBenefitAmount = 0;
-        for (int benefitAmount : appliedEventGroup.findEventAmounts()) {
-            totalBenefitAmount += benefitAmount;
+    public int calculateTotalEventAmount(AppliedEventGroup appliedEventGroup){
+        int totalEventAmount = 0;
+        for (int eventAmount : appliedEventGroup.findEventAmounts()) {
+            totalEventAmount += eventAmount;
         }
-        return totalBenefitAmount;
+        return totalEventAmount;
     }
 }
