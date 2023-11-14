@@ -21,11 +21,12 @@ public class EventPlanner {
     }
 
     public void start() {
-        init();
-        result();
+        outputView.welcomeMessage();
+        initFromUserInput();
+        printReservedOrder();
     }
 
-    private void result() {
+    private void printReservedOrder() {
         outputView.showPreviewReservedOrderMessage(reservedDate.getDay());
         outputView.showReservedMenu(reservedMenuGroup);
         outputView.showTotalPriceBeforeDiscount(reservedOrder.getTotalPriceBeforeDiscount());
@@ -36,8 +37,7 @@ public class EventPlanner {
         outputView.showEventBadge(reservedOrder.getAppliedEvent().getBadge());
     }
 
-    private void init() {
-        outputView.welcomeMessage();
+    private void initFromUserInput() {
         this.reservedDate = reserveDate();
         this.reservedMenuGroup = reservedMenuGroup();
         this.reservedOrder = new ReservedOrder(reservedMenuGroup, reservedDate);
