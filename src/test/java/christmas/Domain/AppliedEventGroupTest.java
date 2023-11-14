@@ -27,7 +27,10 @@ class AppliedEventGroupTest {
     }
 
     @Test
+    @DisplayName("이벤트 금액의 총합을 구한다.")
     void findTotalEventAmount() {
+        int totalEventAmount = appliedEventGroup1.findTotalEventAmount();
+        assertThat(totalEventAmount).isEqualTo(29_223);
     }
 
     @Test
