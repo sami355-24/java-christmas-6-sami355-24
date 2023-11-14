@@ -1,5 +1,6 @@
 package christmas.Controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import christmas.Domain.ReservedDate;
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import christmas.Domain.ReservedOrder;
@@ -40,6 +41,7 @@ public class EventPlanner {
         this.reservedDate = reserveDate();
         this.reservedMenuGroup = reservedMenuGroup();
         this.reservedOrder = new ReservedOrder(reservedMenuGroup, reservedDate);
+        Console.close();
     }
 
     public ReservedDate reserveDate() {
