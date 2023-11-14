@@ -57,7 +57,7 @@ public class BenefitRecord {
         if (STAR_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount < STAR_BADGE_CRITERIA.get(MAX))
             return STAR_BADGE.getValue();
         if (TREE_BADGE_CRITERIA.get(MIN) <= benefitAmount && benefitAmount < TREE_BADGE_CRITERIA.get(MAX))
-            return STAR_BADGE.getValue() + ", " + TREE_BADGE.getValue();
+            return TREE_BADGE.getValue();
         if (SANTA_BADGE_CRITERIA.get(MIN) <= benefitAmount)
             return SANTA_BADGE.getValue();
 
