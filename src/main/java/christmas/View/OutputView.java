@@ -7,6 +7,7 @@ import static christmas.Message.EventPlannerPrompt.RESERVED_MENU;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU_TITLE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_BENEFIT_PRICE_TITLE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE;
+import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE_AFTER_DISCOUNT_TITLE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE_BEFORE_DISCOUNT_TITLE;
 import static christmas.Message.EventPlannerPrompt.WELL_COME;
 
@@ -70,4 +71,8 @@ public class OutputView {
         System.out.println(String.format(TOTAL_PRICE.getPrompt(), totalBenefitPrice));
     }
 
+    public void showTotalPriceAfterDiscount(int totalPriceAfterDiscount) {
+        System.out.println(TOTAL_PRICE_AFTER_DISCOUNT_TITLE.getPrompt());
+        System.out.println(String.format(TOTAL_PRICE.getPrompt(), totalPriceAfterDiscount));
+    }
 }
