@@ -9,7 +9,6 @@ import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.idDu
 import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.isValidFormat;
 import static java.util.Collections.*;
 
-import christmas.Domain.BenefitRecord;
 import christmas.Domain.Menu;
 import java.util.EnumMap;
 import java.util.List;

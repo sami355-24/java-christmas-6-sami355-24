@@ -1,5 +1,6 @@
 package christmas.Domain;
 
+import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +10,7 @@ public class BenefitRecord {
 
     Map<String, Integer> benefits;
 
-    BenefitRecord() {
+    BenefitRecord(ReservedMenuGroup menuGroup, ReservedDate date) {
         this.benefits = new HashMap<>();
     }
 
