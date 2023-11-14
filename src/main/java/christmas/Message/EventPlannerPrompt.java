@@ -9,7 +9,7 @@ public enum EventPlannerPrompt {
     RESERVED_MENU_TITLE("<주문 메뉴>"),
     TOTAL_PRICE_BEFORE_DISCOUNT_TITLE("<할인 전 총주문 금액>"),
     GIFT_TITLE("<증정 메뉴>"),
-    APPLIED_EVENT_TITLE("<혜택 내역>"),
+    APPLIED_BENEFIT_TITLE("<혜택 내역>"),
     TOTAL_BENEFIT_PRICE_TITLE("<총혜택 금액>"),
     TOTAL_PRICE_AFTER_DISCOUNT_TITLE("<할인 후 예상 결제 금액>"),
     EVENT_BADGE_TITLE("<12월 이벤트 배지>"),
