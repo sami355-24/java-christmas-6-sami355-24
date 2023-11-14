@@ -23,4 +23,7 @@ public class ReservedOrder {
         return calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= DISCOUNT_CRITERIA;
     }
 
+    public Map<String, Integer> getBenefitRecord() {
+        return benefitRecord.getBenefits();
+    }
 }
