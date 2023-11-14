@@ -14,11 +14,11 @@ public enum EventPlannerPrompt {
     TOTAL_PRICE_AFTER_DISCOUNT_TITLE("<할인 후 예상 결제 금액>"),
     EVENT_BADGE_TITLE("<12월 이벤트 배지>"),
 
-    RESERVED_MENU("%s %d개"),
-    TOTAL_PRICE("%d원"),
-    GIFT_MENU("%s %d개"),
-    APPLIED_EVENT("%s %d원"),
-    TOTAL_BENEFIT_PRICE("-%d원");
+    RESERVED_MENU("%s %,d개"),
+    TOTAL_PRICE("%,d원"),
+    GIFT_MENU("%s %,d개"),
+    APPLIED_EVENT("%s %,d원"),
+    TOTAL_BENEFIT_PRICE("-%,d원");
 
     private final String prompt;
 
