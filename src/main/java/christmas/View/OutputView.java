@@ -83,6 +83,10 @@ public class OutputView {
 
     public void showTotalBenefitPrice(int totalBenefitPrice) {
         System.out.println(TOTAL_BENEFIT_PRICE_TITLE.getPrompt());
+        if (totalBenefitPrice == 0) {
+            System.out.println(NOTHING.getValue());
+            return;
+        }
         System.out.println(String.format(TOTAL_BENEFIT_PRICE.getPrompt(), totalBenefitPrice));
     }
 
