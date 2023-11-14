@@ -7,21 +7,21 @@ import java.util.Map;
 
 public class BenefitRecord {
 
-    Map<String, Integer> benefitRecord;
+    Map<String, Integer> benefits;
 
     BenefitRecord() {
-        this.benefitRecord = new HashMap<>();
+        this.benefits = new HashMap<>();
     }
 
     public void addBenefit(String benefitName, int benefitAmount) {
-        benefitRecord.put(benefitName, benefitAmount);
+        benefits.put(benefitName, benefitAmount);
     }
 
-    public Map<String, Integer> getBenefitRecord() {
-        return Collections.unmodifiableMap(benefitRecord);
+    public Map<String, Integer> getBenefits() {
+        return Collections.unmodifiableMap(benefits);
     }
 
     public List<Integer> getBenefitAmounts() {
-        return benefitRecord.values().stream().toList();
+        return benefits.values().stream().toList();
     }
 }
