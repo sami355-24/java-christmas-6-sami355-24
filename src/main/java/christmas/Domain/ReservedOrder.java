@@ -1,6 +1,6 @@
 package christmas.Domain;
 
-import static christmas.Constant.Benefit.GIFT_CRITERIA;
+import static christmas.Constant.Event.GIFT_CRITERIA;
 import static christmas.Domain.Menu.CHAMPAGNE;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;

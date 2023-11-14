@@ -1,6 +1,6 @@
 package christmas.Constant;
 
-public enum Benefit {
+public enum Event {
     CHRISTMAS_BENEFIT("크리스마스 디데이 할인"),
     WEEKDAY_BENEFIT("평일 할인"),
     WEEKEND_BENEFIT("주말 할인"),
@@ -25,7 +25,7 @@ public enum Benefit {
     public static final int GIFT_CRITERIA = 120_000;
     public static final int GIFT_COUNT = 1;
 
-    Benefit(String benefitName) {
+    Event(String benefitName) {
         this.value = benefitName;
     }
 

@@ -1,7 +1,7 @@
 package christmas.View;
 
-import static christmas.Constant.Benefit.GIFT_COUNT;
-import static christmas.Constant.Benefit.NOTHING;
+import static christmas.Constant.Event.GIFT_COUNT;
+import static christmas.Constant.Event.NOTHING;
 import static christmas.Message.EventPlannerPrompt.APPLIED_BENEFIT_TITLE;
 import static christmas.Message.EventPlannerPrompt.APPLIED_EVENT;
 import static christmas.Message.EventPlannerPrompt.EVENT_BADGE_TITLE;

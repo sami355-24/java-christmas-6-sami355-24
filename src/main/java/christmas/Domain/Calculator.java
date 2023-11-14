@@ -1,11 +1,11 @@
 package christmas.Domain;
 
-import static christmas.Constant.Benefit.CHRISTMAS_BASIC_BENEFIT_DISCOUNT;
-import static christmas.Constant.Benefit.CHRISTMAS_PER_DAY_BENEFIT_DISCOUNT;
-import static christmas.Constant.Benefit.GIFT_BENEFIT;
-import static christmas.Constant.Benefit.SPECIAL_BENEFIT_DISCOUNT;
-import static christmas.Constant.Benefit.WEEKDAY_BENEFIT_DISCOUNT;
-import static christmas.Constant.Benefit.WEEKEND_BENEFIT_DISCOUNT;
+import static christmas.Constant.Event.CHRISTMAS_BASIC_BENEFIT_DISCOUNT;
+import static christmas.Constant.Event.CHRISTMAS_PER_DAY_BENEFIT_DISCOUNT;
+import static christmas.Constant.Event.GIFT_BENEFIT;
+import static christmas.Constant.Event.SPECIAL_BENEFIT_DISCOUNT;
+import static christmas.Constant.Event.WEEKDAY_BENEFIT_DISCOUNT;
+import static christmas.Constant.Event.WEEKEND_BENEFIT_DISCOUNT;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;

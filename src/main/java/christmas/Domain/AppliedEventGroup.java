@@ -1,16 +1,16 @@
 package christmas.Domain;
 
-import static christmas.Constant.Benefit.CHRISTMAS_BENEFIT;
-import static christmas.Constant.Benefit.DISCOUNT_CRITERIA;
-import static christmas.Constant.Benefit.GIFT_BENEFIT;
-import static christmas.Constant.Benefit.GIFT_CRITERIA;
-import static christmas.Constant.Benefit.NOTHING;
-import static christmas.Constant.Benefit.SANTA_BADGE;
-import static christmas.Constant.Benefit.SPECIAL_BENEFIT;
-import static christmas.Constant.Benefit.STAR_BADGE;
-import static christmas.Constant.Benefit.TREE_BADGE;
-import static christmas.Constant.Benefit.WEEKDAY_BENEFIT;
-import static christmas.Constant.Benefit.WEEKEND_BENEFIT;
+import static christmas.Constant.Event.CHRISTMAS_BENEFIT;
+import static christmas.Constant.Event.DISCOUNT_CRITERIA;
+import static christmas.Constant.Event.GIFT_BENEFIT;
+import static christmas.Constant.Event.GIFT_CRITERIA;
+import static christmas.Constant.Event.NOTHING;
+import static christmas.Constant.Event.SANTA_BADGE;
+import static christmas.Constant.Event.SPECIAL_BENEFIT;
+import static christmas.Constant.Event.STAR_BADGE;
+import static christmas.Constant.Event.TREE_BADGE;
+import static christmas.Constant.Event.WEEKDAY_BENEFIT;
+import static christmas.Constant.Event.WEEKEND_BENEFIT;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Collections;
