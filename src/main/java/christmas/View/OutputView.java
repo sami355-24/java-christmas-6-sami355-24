@@ -3,6 +3,8 @@ package christmas.View;
 import static christmas.Message.EventPlannerPrompt.PREVIEW_EVENT_BENEFITS;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU_TITLE;
+import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE;
+import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE_BEFORE_DISCOUNT_TITLE;
 import static christmas.Message.EventPlannerPrompt.WELL_COME;
 
 import christmas.Domain.Menu;
@@ -32,4 +34,10 @@ public class OutputView {
             System.out.println(String.format(RESERVED_MENU.getPrompt(), menuName, menuCount));
         }
     }
+
+    public void showTotalPriceBeforeDiscount(int totalPrice){
+        System.out.println(TOTAL_PRICE_BEFORE_DISCOUNT_TITLE.getPrompt());
+        System.out.println(String.format(TOTAL_PRICE.getPrompt(), totalPrice));
+    }
+
 }
