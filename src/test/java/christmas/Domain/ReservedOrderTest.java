@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -28,9 +27,9 @@ class ReservedOrderTest {
     @Test
     @DisplayName("주문한 메뉴의 전체 금액이 할인을 받을 수 있는 기준 금액보다 높을때 할인 받을 수 있다.")
     void getBenefitRecord() {
-        BenefitRecord benefitRecord = reservedOrder2.getBenefitRecord();
+        AppliedEventGroup appliedEventGroup = reservedOrder2.getBenefitRecord();
 
-        assertThat(benefitRecord.getBenefits()).isNotEmpty();
+        assertThat(appliedEventGroup.getBenefits()).isNotEmpty();
     }
 
     @Test

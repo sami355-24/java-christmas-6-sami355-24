@@ -34,9 +34,9 @@ public class Calculator {
         return Menu.CHAMPAGNE.getPrice();
     }
 
-    public int calculateTotalPriceAfterDiscount(ReservedMenuGroup menuGroup, BenefitRecord benefitRecord){
+    public int calculateTotalPriceAfterDiscount(ReservedMenuGroup menuGroup, AppliedEventGroup appliedEventGroup){
         int totalPrice = calculateTotalPriceBeforeDiscount(menuGroup);
-        int benefitPriceWithoutGift = benefitRecord.getBenefits().entrySet().stream()
+        int benefitPriceWithoutGift = appliedEventGroup.getBenefits().entrySet().stream()
                 .filter(benefit -> !benefit.getKey().equals(GIFT_BENEFIT.getValue()))
                 .mapToInt(Entry::getValue)
                 .sum();
@@ -52,9 +52,9 @@ public class Calculator {
         return totalPrice;
     }
 
-    public int calculateTotalBenefitAmount(BenefitRecord benefitRecord){
+    public int calculateTotalBenefitAmount(AppliedEventGroup appliedEventGroup){
         int totalBenefitAmount = 0;
-        for (int benefitAmount : benefitRecord.getBenefitAmounts()) {
+        for (int benefitAmount : appliedEventGroup.getBenefitAmounts()) {
             totalBenefitAmount += benefitAmount;
         }
         return totalBenefitAmount;

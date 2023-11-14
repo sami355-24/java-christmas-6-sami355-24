@@ -17,7 +17,7 @@ import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE_AFTER_DISCOUNT_TI
 import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE_BEFORE_DISCOUNT_TITLE;
 import static christmas.Message.EventPlannerPrompt.WELL_COME;
 
-import christmas.Domain.BenefitRecord;
+import christmas.Domain.AppliedEventGroup;
 import christmas.Domain.Menu;
 import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;
@@ -65,7 +65,7 @@ public class OutputView {
         }
     }
 
-    public void showBenefitRecords(BenefitRecord records){
+    public void showBenefitRecords(AppliedEventGroup records){
         Set<Entry<String, Integer>> entries = records.getBenefits().entrySet();
         System.out.println(APPLIED_BENEFIT_TITLE.getPrompt());
 

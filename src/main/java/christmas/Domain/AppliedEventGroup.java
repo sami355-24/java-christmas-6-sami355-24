@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BenefitRecord {
+public class AppliedEventGroup {
 
     private final int MIN = 0;
     private final int MAX = 1;
@@ -29,7 +29,7 @@ public class BenefitRecord {
     Map<String, Integer> benefits;
     Calculator calculator = new Calculator();
 
-    BenefitRecord(ReservedMenuGroup menuGroup, ReservedDate date) {
+    AppliedEventGroup(ReservedMenuGroup menuGroup, ReservedDate date) {
         this.benefits = new HashMap<>();
         if (calculator.calculateTotalPriceBeforeDiscount(menuGroup) >= DISCOUNT_CRITERIA)
             initBenefitRecords(menuGroup, date);
