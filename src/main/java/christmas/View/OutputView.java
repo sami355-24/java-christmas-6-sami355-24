@@ -79,6 +79,6 @@ public class OutputView {
 
     public void showEventBadge(String badge) {
         System.out.println(EVENT_BADGE_TITLE.getPrompt());
-        System.out.println(String.format(TOTAL_PRICE_AFTER_DISCOUNT_TITLE.getPrompt(), badge));
+        System.out.println(badge);
     }
 }
