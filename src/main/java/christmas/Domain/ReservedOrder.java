@@ -13,10 +13,10 @@ public class ReservedOrder {
     private final Calculator calculator;
     private final BenefitRecord benefitRecord;
 
-    public ReservedOrder(ReservedMenuGroup menuGroup, ReservedDate date, Calculator calculator) {
+    public ReservedOrder(ReservedMenuGroup menuGroup, ReservedDate date) {
         this.menuGroup = menuGroup;
         this.date = date;
-        this.calculator = calculator;
+        this.calculator = new Calculator();
         this.benefitRecord = new BenefitRecord(menuGroup, date);
     }
 
@@ -34,5 +34,9 @@ public class ReservedOrder {
 
     public int getTotalPriceAfterDiscount() {
         return calculator.calculateTotalPriceAfterDiscount(menuGroup, benefitRecord);
+    }
+
+    public int getTotalPriceBeforeDiscount() {
+        return calculator.calculateTotalPriceBeforeDiscount(menuGroup);
     }
 }
