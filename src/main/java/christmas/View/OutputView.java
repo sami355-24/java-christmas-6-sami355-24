@@ -2,12 +2,14 @@ package christmas.View;
 
 import static christmas.Constant.Benefit.GIFT_COUNT;
 import static christmas.Message.EventPlannerPrompt.APPLIED_BENEFIT_TITLE;
+import static christmas.Message.EventPlannerPrompt.APPLIED_EVENT;
 import static christmas.Message.EventPlannerPrompt.EVENT_BADGE_TITLE;
 import static christmas.Message.EventPlannerPrompt.GIFT_MENU;
 import static christmas.Message.EventPlannerPrompt.GIFT_TITLE;
 import static christmas.Message.EventPlannerPrompt.PREVIEW_EVENT_BENEFITS;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU;
 import static christmas.Message.EventPlannerPrompt.RESERVED_MENU_TITLE;
+import static christmas.Message.EventPlannerPrompt.TOTAL_BENEFIT_PRICE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_BENEFIT_PRICE_TITLE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE;
 import static christmas.Message.EventPlannerPrompt.TOTAL_PRICE_AFTER_DISCOUNT_TITLE;
@@ -64,7 +66,7 @@ public class OutputView {
         for (Entry<String, Integer> entry : entries) {
             String benefitName = entry.getKey();
             Integer benefitAmount = entry.getValue();
-            System.out.println(String.format(RESERVED_MENU.getPrompt(), benefitName, benefitAmount));
+            System.out.println(String.format(APPLIED_EVENT.getPrompt(), benefitName, benefitAmount));
         }
     }
 

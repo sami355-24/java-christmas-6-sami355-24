@@ -45,7 +45,8 @@ public class ReservedDate {
     }
 
     public boolean isWeekDay() {
-        return date.getDayOfWeek().getValue() < SATURDAY.getValue();
+        return date.getDayOfWeek().getValue() < FRIDAY.getValue()
+                || date.getDayOfWeek().getValue() == SUNDAY.getValue();
     }
 
     public boolean isChristmasNotPassed() {
