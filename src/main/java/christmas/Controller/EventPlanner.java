@@ -18,7 +18,7 @@ public class EventPlanner {
         this.outputView = new OutputView();
     }
 
-    public void start() {
+    public void makeReservation() {
         outputView.welcomeMessage();
         initFromUserInput();
         outputView.showPreviewReservedOrderMessage(reservedOrder.getReservedDate());
