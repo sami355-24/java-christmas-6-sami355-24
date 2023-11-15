@@ -47,13 +47,11 @@ public class ReservedMenuGroupValidator {
     static void hasValidMenuCount(String menuInput) {
         List<String> dividedMenus = divideMenusByComma(menuInput);
         int totalMenuCount = 0;
-
         for (String menuWithCount : dividedMenus) {
             List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(menuWithCount);
             String menuCountString = dividedMenuAndCount.get(count);
             totalMenuCount += convertStringToInt(menuCountString);
         }
-
         if (totalMenuCount < MIN_MENU_COUNT || totalMenuCount > MAX_MENU_COUNT)
             throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
     }
@@ -61,7 +59,6 @@ public class ReservedMenuGroupValidator {
     static void isValidMenuFormat(String menuInput) {
         String pattern = "^(.+)-(\\d+)$";
         Pattern r = Pattern.compile(pattern, Pattern.MULTILINE);
-
         List<String> dividedMenus = divideMenusByComma(menuInput);
         for (String menuWithCount : dividedMenus) {
             if (!r.matcher(menuWithCount).find()) {
@@ -77,7 +74,6 @@ public class ReservedMenuGroupValidator {
             List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(dividedMenu);
             menuSet.add(dividedMenuAndCount.get(menu));
         }
-
         if (menuSet.size() != dividedMenus.size()) {
             throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
         }
