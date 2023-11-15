@@ -11,7 +11,7 @@ public class ReservedOrder {
     private final ReservedMenuGroup menuGroup;
     private final ReservedDate date;
     private final Calculator calculator;
-    private AppliedEventGroup appliedEventGroup;
+    private final AppliedEventGroup appliedEventGroup;
 
     public ReservedOrder(ReservedMenuGroup menuGroup, ReservedDate date) {
         this.menuGroup = menuGroup;
