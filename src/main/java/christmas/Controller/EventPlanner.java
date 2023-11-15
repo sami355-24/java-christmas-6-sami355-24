@@ -28,7 +28,7 @@ public class EventPlanner {
 
     private void printReservedOrder() {
         outputView.showPreviewReservedOrderMessage(reservedDate.getDay());
-        outputView.showReservedMenu(reservedMenuGroup);
+        outputView.showReservedMenu(reservedMenuGroup.getMenuGroup());
         outputView.showTotalPriceBeforeDiscount(reservedOrder.getTotalPriceBeforeDiscount());
         outputView.showGift(reservedOrder.getGifts());
         outputView.showAppliedEventGroup(reservedOrder.getAppliedEvent());

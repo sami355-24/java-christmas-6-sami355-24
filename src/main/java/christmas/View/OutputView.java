@@ -19,7 +19,6 @@ import static christmas.Message.EventPlannerPrompt.WELL_COME;
 
 import christmas.Domain.AppliedEventGroup;
 import christmas.Domain.Menu;
-import christmas.Domain.ReservedMenuGroup.ReservedMenuGroup;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -34,10 +33,10 @@ public class OutputView {
         System.out.println(String.format(PREVIEW_EVENT_BENEFITS.getPrompt(), day));
     }
 
-    public void showReservedMenu(ReservedMenuGroup menuGroup) {
+    public void showReservedMenu(Map<Menu, Integer> menuGroup) {
         System.out.println(RESERVED_MENU_TITLE.getPrompt());
 
-        for (Entry<Menu, Integer> menu : menuGroup.getMenuGroup().entrySet()) {
+        for (Entry<Menu, Integer> menu : menuGroup.entrySet()) {
             String menuName = menu.getKey().getName();
             Integer menuCount = menu.getValue();
             System.out.println(String.format(RESERVED_MENU.getPrompt(), menuName, menuCount));
