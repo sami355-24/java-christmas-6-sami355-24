@@ -42,7 +42,7 @@ class ReservedDateTest {
     @Test
     @DisplayName("평일 할인에 해당되는 날짜로 예약하였을때 평일 할인에 해당한다고 알려준다.")
     void isWeekDayTest1() {
-        ReservedDate reservedDate = new ReservedDate("1");
+        ReservedDate reservedDate = new ReservedDate("4");
         assertTrue(reservedDate.isWeekDay());
     }
 
