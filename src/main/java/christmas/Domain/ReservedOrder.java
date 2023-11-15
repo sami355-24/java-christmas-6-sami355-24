@@ -39,6 +39,10 @@ public class ReservedOrder {
         return calculator.calculateTotalPriceBeforeDiscount(menuGroup);
     }
 
+    public Map<Menu, Integer> getReservedMenuGroup() {
+        return menuGroup.getMenuGroup();
+    }
+
     public int getReservedDate() {
         return date.getDay();
     }
