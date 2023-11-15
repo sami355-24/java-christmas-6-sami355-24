@@ -40,7 +40,6 @@ public class ReservedMenuGroup {
         List<String> dividedMenus = divideMenusByComma(menus);
         for (String menuWithCount : dividedMenus) {
             List<String> dividedMenuAndCount = divideMenuWithCountByHyphen(menuWithCount);
-
             menuGroup.put(
                     Menu.findMenuByName(dividedMenuAndCount.get(menu)),
                     convertStringToInt(dividedMenuAndCount.get(count))
