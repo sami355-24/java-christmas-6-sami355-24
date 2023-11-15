@@ -11,7 +11,6 @@ import christmas.Exception.MenuException;
 
 public class EventPlannerDecorator extends EventPlanner {
 
-
     public EventPlannerDecorator() {
         super();
     }
