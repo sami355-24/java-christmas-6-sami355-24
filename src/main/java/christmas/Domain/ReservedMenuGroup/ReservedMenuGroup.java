@@ -3,10 +3,7 @@ package christmas.Domain.ReservedMenuGroup;
 import static christmas.Common.Utility.convertStringToInt;
 import static christmas.Common.Validator.validateBlankInput;
 import static christmas.Common.Validator.validateEmptyInput;
-import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.hasValidMenuCount;
-import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.hasValidMenuName;
-import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.idDuplicateMenu;
-import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.isValidFormat;
+import static christmas.Domain.ReservedMenuGroup.ReservedMenuGroupValidator.*;
 import static java.util.Collections.*;
 
 import christmas.Domain.Menu;
@@ -32,7 +29,7 @@ public class ReservedMenuGroup {
     private void validate(String menuInput) {
         validateBlankInput(menuInput);
         validateEmptyInput(menuInput);
-        ReservedMenuGroupValidator.hasOnlyBeverages(menuInput);
+        hasOnlyBeverages(menuInput);
         hasValidMenuName(menuInput);
         hasValidMenuCount(menuInput);
         isValidFormat(menuInput);
