@@ -58,7 +58,7 @@ public class ReservedMenuGroupValidator {
             throw new MenuException(INVALID_MENU.getPrompt(), new IllegalArgumentException());
     }
 
-    static void isValidFormat(String menuInput) {
+    static void isValidMenuFormat(String menuInput) {
         String pattern = "^(.+)-(\\d+)$";
         Pattern r = Pattern.compile(pattern, Pattern.MULTILINE);
 

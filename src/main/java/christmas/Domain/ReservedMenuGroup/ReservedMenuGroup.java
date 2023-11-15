@@ -32,7 +32,7 @@ public class ReservedMenuGroup {
         hasOnlyBeverages(menuInput);
         hasValidMenuName(menuInput);
         hasValidMenuCount(menuInput);
-        isValidFormat(menuInput);
+        isValidMenuFormat(menuInput);
         idDuplicateMenu(menuInput);
     }
 
